@@ -17,6 +17,18 @@
 		<link rel="stylesheet" type="text/css" href="./main.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 		<style>
+			#checklistText {
+			    position: absolute;
+			    float: left;
+			    margin-left: 20%;	
+			}
+			
+			#mapText {
+			    position: absolute;
+			    float: right;
+			    margin-right: 20%;	
+			}
+			
 			table {
 			    text-align: center;
 			    width: 40px;
@@ -281,8 +293,8 @@
 			}
 
 			#logo-image {
-				float: right;
-				width: calc(50% + 97.5px);
+				float: left;
+				margin-left: calc(50% + 97.5px);
 			}
 		
 			#frame {
@@ -379,12 +391,13 @@
 	<body>
 		<div id="main">
 			<div id="logo">
+				<h1 id="checklistText">Checklist</h1>
 				<div id="logo-image">
 					<img src="images/logo1.png"></img>
 				</div>
+				<h1 id="mapText">Map</h1>
 			</div>
 			<div id="checklist">
-				<h1>Checklist</h1><br>
 				<div id="mainBar" class="progressbar" data-perc="0">
 					<div id="barSpan" class="bar"><span></span></div>
 					<div id="barLabel" class="label"><span></span></div>
@@ -616,7 +629,6 @@
 				</table>
 			</div>
 			<div id="map">
-				<h1>Map</h1><br>
 				<span id="wrap">
 					<iframe id="frame" class="map" src="https://zeahproduct.github.io/zeahonly/mapsrc.html" style="border:5px solid black;" scrolling="no">
 			      		<p>Your current browser does not support this map.</p>

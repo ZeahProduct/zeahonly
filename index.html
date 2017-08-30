@@ -74,7 +74,6 @@
 			  filter: drop-shadow(4px 4px 5px #222);
 			}
 			
-			
 			.progressbar{
 			    position:relative;
 			    display:block;
@@ -82,6 +81,7 @@
 			    height:20px;
 			    margin:auto;
 			}
+			
 			.progressbar:before{
 			    position:absolute;
 			    display:block;
@@ -332,6 +332,16 @@
 		}
 		
 		   window.onload = function() {
+			var mapText = document.getElementById("mapText");
+			var checklistText = document.getElementById("checklistText")
+			checklistText.onclick = function() {
+				document.getElementById("map").style.display = "none";
+				document.getElementById("checklist").style.display = "inline";
+			};
+			mapText.onclick = function() {
+				document.getElementById("checklist").style.display = "none";
+				document.getElementById("map").style.display = "inline";
+			};
 		    setTimeout(function() {
 			var anchors = document.getElementsByTagName('img');
 			var anchors = toArray(anchors);
@@ -388,6 +398,7 @@
 			setInterval(perc, 10); 
 		});
 	});
+			
 		</script>
 	</head>
 	<body>

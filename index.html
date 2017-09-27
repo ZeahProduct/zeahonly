@@ -351,21 +351,30 @@
 		}
 		
 		   window.onload = function() {
-			var map = new ol.Map({
-				target: 'mapImg',
-				layers: [
-				  new ol.layer.Image({
-				    source: new ol.source.ImageStatic({
-					imageExtent: [0,0,4000,3472],
-					url: "images/map.jpg"
-				    })
-				  })
-				],
-				view: new ol.View({
-				  center: [1850, 1650],
-				  zoom: 0
-				})
-			});
+			   var extent = [0,0,4000,3472];
+			   var projection = new ol.proj.Projection({
+				code: 'xkcd-image',
+				units: 'pixels',
+				extent: extent
+			      });
+				var map = new ol.Map({
+					target: 'mapImg',
+					layers: [
+					  new ol.layer.Image({
+					    source: new ol.source.ImageStatic({
+						imageExtent: extent,
+						projection: projection,
+						url: "images/map.jpg"
+					    })
+					  })
+					],
+					view: new ol.View({
+					  projection: projection,
+					  center: [1850, 1650],
+					  zoom: 4,
+					  maxZoom: 8
+					})
+				});
 			   
 			var mapText = document.getElementById("mapText");
 			var checklistText = document.getElementById("checklistText")

@@ -418,11 +418,11 @@
 			target: 'map',
 			layers: [
 			  new ol.layer.Tile({
-			    source: new ol.source.OSM()
+			    source: new ol.source.Image()
 			  })
 			],
 			view: new ol.View({
-			  center: ol.proj.fromLonLat([37.41, 8.82]),
+			  center: [1850, 1650],
 			  zoom: 4
 			})
 		      });

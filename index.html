@@ -417,9 +417,9 @@
 			var map = new ol.Map({
 			target: 'map',
 			layers: [
-			  new ol.layer.Tile({
+			  new ol.layer.Image({
 			    source: new ol.source.ImageStatic({
-			    	imageExtent: ol.Extent([1000,868,4000,3472]),
+			    	imageExtent: [1000,868,4000,3472],
 				url: "images/map.jpg"
 			    })
 			  })

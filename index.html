@@ -415,20 +415,20 @@
 	
 			
 			var map = new ol.Map({
-			target: 'map',
-			layers: [
-			  new ol.layer.Image({
-			    source: new ol.source.ImageStatic({
-			    	imageExtent: [1000,868,4000,3472],
-				url: "images/map.jpg"
-			    })
-			  })
-			],
-			view: new ol.View({
-			  center: [1850, 1650],
-			  zoom: 4
-			})
-		      });
+				target: 'map',
+				layers: [
+				  new ol.layer.Image({
+				    source: new ol.source.Image({
+					imageExtent: [1000,868,4000,3472],
+					url: "images/map.jpg"
+				    })
+				  })
+				],
+				view: new ol.View({
+				  center: [1850, 1650],
+				  zoom: 0
+				})
+			});
 		</script>
 	</head>
 	<body>
@@ -675,7 +675,7 @@
 			<div id="map">
 				<br>
 				<div id="map" class="map">
-				    <img src="images/map.jpg" class="imgMap" />
+				    <!--<img src="images/map.jpg" class="imgMap" />-->
 				</div>
 				<!--<span id="wrap">
 					<iframe id="frame" class="map" src="https://zeahproduct.github.io/zeahonly/mapsrc.html" style="border:5px solid black;" scrolling="no">

@@ -347,6 +347,22 @@
 		}
 		
 		   window.onload = function() {
+			var map = new ol.Map({
+				target: 'mapImg',
+				layers: [
+				  new ol.layer.Image({
+				    source: new ol.source.Image({
+					imageExtent: [1000,868,4000,3472],
+					url: "images/map.jpg"
+				    })
+				  })
+				],
+				view: new ol.View({
+				  center: [1850, 1650],
+				  zoom: 0
+				})
+			});
+			   
 			var mapText = document.getElementById("mapText");
 			var checklistText = document.getElementById("checklistText")
 			checklistText.onclick = function() {
@@ -413,23 +429,6 @@
 			setInterval(perc, 10); 
 		});
 	});
-	
-			
-			var map = new ol.Map({
-				target: 'mapImg',
-				layers: [
-				  new ol.layer.Image({
-				    source: new ol.source.Image({
-					imageExtent: [1000,868,4000,3472],
-					url: "images/map.jpg"
-				    })
-				  })
-				],
-				view: new ol.View({
-				  center: [1850, 1650],
-				  zoom: 0
-				})
-			});
 		</script>
 	</head>
 	<body>

@@ -24,6 +24,7 @@
   <body onLoad="window.scroll(1850, 1650)">
 	  <img id="mapPic" src="images/map.jpg" draggable="false">
 	  <script>
+		 window.onwheel = function(){ return false; }
 		 window.addEventListener('scroll',function(){
 		    var scrolled = window.scrollY / ( document.body.offsetHeight );
 		    console.log("window.scrollY: " + window.scrollY);

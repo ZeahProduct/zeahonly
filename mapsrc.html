@@ -25,19 +25,6 @@
 	  <img id="mapPic" src="images/map.jpg" draggable="false">
 	  <script>
 		 window.onwheel = function(){ return false; }
-		 window.addEventListener('scroll',function(){
-		    var scrolled = window.scrollY / ( document.body.offsetHeight );
-		    console.log("window.scrollY: " + window.scrollY);
-		    console.log("scrolled: " + scrolled );
-		    var zoomLevels = 1;
-		    var scale = Math.pow(3, scrolled * zoomLevels);
-		    var images = document.body.getElementsByTagName("img");
-		    console.log("scale:" + scale);
-		    for(i=0;i<images.length;i++){
-			images[i].width = Math.round(1850/scale);
-			images[i].height = Math.round(1650/scale);
-		    }
-		},true);
 	  </script>
   </body>
 </html>

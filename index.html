@@ -17,6 +17,10 @@
 		<link rel="stylesheet" type="text/css" href="./main.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 		<style>
+			#frame {
+			    transform-origin: 0px 0px;
+			}
+			
 			#checklistText {
 			    position: absolute;
 			    float: left;
@@ -756,10 +760,8 @@
 			</div>
 			<div id="map">
 				<br>
-				<span id="wrap">
-					<iframe src="mapsrc.html" style="border:4px solid black;" width="100%" height="800"></iframe>
-				</span>
-				</div>
+				<iframe id="frame" src="mapsrc.html" scrolling="no" style="border:4px solid black;" width="100%" height="800"></iframe>
+			</div>
 		</div>
 	</body>
 </html>

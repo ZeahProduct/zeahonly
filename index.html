@@ -416,8 +416,6 @@
 				}   
 			}
 		   }
-		   
-		   $(function() {
 		
 		$('.progressbar').each(function(){
 			var t = $(this);
@@ -434,9 +432,10 @@
 				t.find('.perc').text(perc+'%');
 			}
 			perc();
-			setInterval(perc, 10); 
+			setInterval(perc, 20); 
 		});
-	});
+			
+		
 		</script>
 	</head>
 	<body>
@@ -799,6 +798,11 @@
 					</tr>
 					<tr>
 						<th><h3>Strength</h3></th>
+					</tr>
+				</table>
+				<table id="hiscoresTable" style="display: inline;">
+					<tr>
+						<th><h1>HiScores</h1></th>
 					</tr>
 				</table>
 			</div>

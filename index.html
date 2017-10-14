@@ -356,6 +356,7 @@
 		   window.onload = function() {
 			var mapText = document.getElementById("mapText");
 			var checklistText = document.getElementById("checklistText")
+			var hiscoresText = document.getElementById("logo-image")
 			checklistText.onclick = function() {
 				document.getElementById("map").style.display = "none";
 				document.getElementById("hiscores").style.display = "none";
@@ -366,7 +367,7 @@
 				document.getElementById("hiscores").style.display = "none";
 				document.getElementById("map").style.display = "inline";
 			};
-			mapText.onclick = function() {
+			hiscoresText.onclick = function() {
 				document.getElementById("checklist").style.display = "none";
 				document.getElementById("hiscores").style.display = "inline";
 				document.getElementById("map").style.display = "none";
@@ -779,16 +780,16 @@
 						<th><h1>Skill</h1></th>
 					</tr>
 					<tr>
-						<th><h2>Overall</h2></th>
+						<th><h3>Overall</h3></th>
 					</tr>
 					<tr>
-						<th><h2>Attack</h2></th>
+						<th><h3>Attack</h3></th>
 					</tr>
 					<tr>
-						<th><h2>Defence</h2></th>
+						<th><h3>Defence</h3></th>
 					</tr>
 					<tr>
-						<th><h2>Strength</h2></th>
+						<th><h3>Strength</h3></th>
 					</tr>
 				</table>
 			</div>

@@ -17,12 +17,14 @@ h1 {
 
 
 h3 {
-  text-align: left;
   line-height: 1.6em;
   vertical-align: middle;
   font-size: 22px;
-  color: #262626;
+  color: #eff1f4;
   padding: 0cm 2cm;
+  text-shadow: -1px -1px 1px #aaa,
+               0px 2px 1px rgba(0,0,0,0.5);
+  text-align: center;
 }
 
 .content {

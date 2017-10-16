@@ -448,38 +448,14 @@
 			var strength = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			var strengthXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			for (i = 0; i < users.length; i++) { // Format arrays
-				totalLevel.push({
-				    key: users[i],
-				    value: 0
-				});
-				totalXP.push({
-				    key: users[i],
-				    value: 0
-				});
-				attack.push({
-				    key: users[i],
-				    value: 0
-				});
-				attackXP.push({
-				    key: users[i],
-				    value: 0
-				});
-				defence.push({
-				    key: users[i],
-				    value: 0
-				});
-				defenceXP.push({
-				    key: users[i],
-				    value: 0
-				});
-				strength.push({
-				    key: users[i],
-				    value: 0
-				});
-				strengthXP.push({
-				    key: users[i],
-				    value: 0
-				});
+				totalLevel[users[i]]=0;
+				totalXP[users[i]]=0;
+				attack[users[i]]=0;
+				attackXP[users[i]]=0;
+				defence[users[i]]=0;
+				defenceXP[users[i]]=0;
+				strength[users[i]]=0;
+				strengthXP[users[i]]=0;
 			}
 
 			function sortObject(obj) {

@@ -8,7 +8,7 @@ body {
 
 h1 {
   color:#eff1f4;
-  font-size: 2.6rem;
+  font-size: 22px;
   text-transform: capitalize;
   text-shadow: -1px -1px 1px #aaa,
                0px 2px 1px rgba(0,0,0,0.5);
@@ -19,7 +19,7 @@ h1 {
 h3 {
   line-height: 0.1em;
   vertical-align: middle;
-  font-size: 22px;
+  font-size: 18px;
   color: #eff1f4;
   padding: 0cm 2cm;
   text-shadow: -1px -1px 1px #aaa,
@@ -155,7 +155,6 @@ nav ul:first-child {
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
 }
 
 .checkimg, .toggleButton {

@@ -438,7 +438,7 @@
 			
 		//var users = ["Zeah Hippo","ZeahSlave","ZeahOnly UIM","Zeah Product","ZeahProduct","Zeah Citizen","Zeah Iron","Zeah Savage","Zeah Peasant","Zeah Elder","Zeah Noble","ZeahNative","Zeahishere","Ironman Zeah","Hell Zeah","the zeah dam","Counter Life","Zeah Boy","Zeah Basket","Tome of Lies","Pleb of Zeah","ZeahLater","Zeah Hentai", "ZeahScorched", "Zay Uh", "Zeah Slave", "Survive Zeah", "Only Zeah","Made In Zeah", "Zeah Homeboy"]
 		var run = function () {
-			var users = ["ZeahProduct", "Zeah Slave", "Tome of Lies", "Zeah Basket", "Made in Zeah", "Zeah Citizen", "Zeah Savage", "ZeahScorched", "Ironman Zeah", "Zeah Hentai"]; // Zeah Accounts
+			var users = ["ZeahProduct", "Zeah Slave", "Tome of Lies", "Zeah Basket", "Made in Zeah", "Zeah Citizen", "Zeah Savage", "ZeahScorched", "Ironman Zeah", "Zeah Hentai"], i; // Zeah Accounts
 			var totalLevel = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			var totalXP = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			var attack = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
@@ -526,10 +526,9 @@
 						strengthXP[users[index]] = data.skills.Strength.XP;
 						if (index == users.length-1) {
 							updateRanks();
-							console.log("UPDATING RANKS");
 						}
 				    });
-				})(i), 5);
+				})(i), 1);
 			}
 		}
 

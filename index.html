@@ -501,11 +501,11 @@
 				var rank = 1;
 				for (var [key, value] of sortObject(totalLevel)) {
 				    var $ul, $ul2, $ul3;
-				    $ul = $('<ul />').appendTo('name'+rank);
+				    $ul = $('<ul />').appendTo('#name'+rank);
 				    $ul.append(key);
-				    $ul2 = $('<ul />').appendTo('rank'+rank);
+				    $ul2 = $('<ul />').appendTo('#rank'+rank);
 				    $ul2.append(value);
-				    $ul3 = $('<ul />').appendTo('xp'+rank);
+				    $ul3 = $('<ul />').appendTo('#xp'+rank);
 				    $ul3.append(numberWithCommas(totalXP[key]));
 				    rank++;
 				    if (rank > 10) {

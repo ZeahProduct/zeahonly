@@ -432,7 +432,7 @@
 					t.find('.perc').text(perc+'%');
 				}
 				perc();
-				setInterval(perc, 20); 
+				setInterval(perc, 50); 
 			});
 		});
 			
@@ -499,8 +499,6 @@
 
 			function updateRanks() {
 				var rank = 1;
-				console.log(totalLevel);
-				console.log(totalXP);
 				for (var [key, value] of sortObject(totalLevel)) {
 				    var $ul, $ul2, $ul3;
 				    $ul = $('<ul />').appendTo('#name'+rank);
@@ -509,10 +507,10 @@
 				    $ul2.append(value);
 				    $ul3 = $('<ul />').appendTo('#xp'+rank);
 				    $ul3.append(numberWithCommas(totalXP[key]));
-				    rank++;
 				    if (rank > 10) {
 					break;
 				    }
+				    rank++;
 				}
 			}
 
@@ -529,7 +527,7 @@
 							updateRanks();
 						}
 				    });
-				})(i), 1);
+				})(i), 10);
 			}
 		}
 

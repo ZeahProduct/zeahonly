@@ -499,6 +499,8 @@
 
 			function updateRanks() {
 				var rank = 1;
+				console.log(totalLevel);
+				console.log(totalXP);
 				for (var [key, value] of sortObject(totalLevel)) {
 				    var $ul, $ul2, $ul3;
 				    $ul = $('<ul />').appendTo('#name'+rank);

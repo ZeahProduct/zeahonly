@@ -439,14 +439,14 @@
 		//var users = ["Zeah Hippo","ZeahSlave","ZeahOnly UIM","Zeah Product","ZeahProduct","Zeah Citizen","Zeah Iron","Zeah Savage","Zeah Peasant","Zeah Elder","Zeah Noble","ZeahNative","Zeahishere","Ironman Zeah","Hell Zeah","the zeah dam","Counter Life","Zeah Boy","Zeah Basket","Tome of Lies","Pleb of Zeah","ZeahLater","Zeah Hentai", "ZeahScorched", "Zay Uh", "Zeah Slave", "Survive Zeah", "Only Zeah","Made In Zeah", "Zeah Homeboy"]
 		var run = function () {
 			var users = ["ZeahProduct", "Zeah Slave", "Tome of Lies", "Zeah Basket", "Made in Zeah", "Zeah Citizen", "Zeah Savage", "ZeahScorched", "Ironman Zeah", "Zeah Hentai"], i; // Zeah Accounts
-			var totalLevel = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
-			var totalXP = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
-			var attack = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
-			var attackXP = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
-			var defence = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
-			var defenceXP = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
-			var strength = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
-			var strengthXP = []; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var totalLevel = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var totalXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var attack = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var attackXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var defence = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var defenceXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var strength = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var strengthXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			for (i = 0; i < users.length; i++) { // Format arrays
 				totalLevel.push({
 				    key: users[i],

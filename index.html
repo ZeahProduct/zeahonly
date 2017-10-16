@@ -507,10 +507,11 @@
 				    $ul2.append(value);
 				    $ul3 = $('<ul />').appendTo('#xp'+rank);
 				    $ul3.append(numberWithCommas(totalXP[key]));
+				    rank++;
 				    if (rank > 10) {
+					console.log("RANK > 10");
 					break;
 				    }
-				    rank++;
 				}
 			}
 
@@ -525,9 +526,10 @@
 						strengthXP[users[index]] = data.skills.Strength.XP;
 						if (index == users.length-1) {
 							updateRanks();
+							console.log("UPDATING RANKS");
 						}
 				    });
-				})(i), 50);
+				})(i), 5);
 			}
 		}
 

@@ -500,7 +500,7 @@
 
 			for (i = 0; i < users.length; i++) {
 				setTimeout((function(index) {
-				    $.getJSON('https://crossorigin.me/https://files.pceasies.com/rs/hiscores_old.php?user=' + users[index], function (data) {       
+				    $.getJSON('https://cors-anywhere.herokuapp.com/https://files.pceasies.com/rs/hiscores_old.php?user=' + users[index], function (data) {       
 						totalLevel[users[index]] = data.overall.Level;
 						totalXP[users[index]] = data.overall.XP;
 						attack[users[index]] = data.skills.Attack.Level;

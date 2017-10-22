@@ -514,15 +514,10 @@
 			}
 		}
 
-		/*(function ($) {
+		(function ($) {
 		    $(document).ready(run);
-		}(jQuery));*/
-		
-		window.onload = function() {
-			run().done(function() {
-				updateRanks();	
-			});
-		}
+			updateRanks();
+		}(jQuery));
 
 		
 		</script>

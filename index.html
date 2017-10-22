@@ -400,7 +400,7 @@
 		    }, 50);
 		   };
 		   function redirect(element, i) {
-		   	if (element.className != "logo" && element.className != "settingsImg") {
+		   	if (element.className != "logo" && element.className != "settingsImg" && element.className != "noClick") {
 				if (element.style.opacity != "1") {
 					element.style.opacity = "1";
 					element.style.filter = 'alpha(opacity=100)';
@@ -865,7 +865,7 @@
 						<th><h1>Skill</h1></th>
 					</tr>
 					<tr>
-						<th><img width="24" height="22" src='https://vignette.wikia.nocookie.net/2007scape/images/a/aa/Stats.png'></img><h3>Overall</h3></th>
+						<th><img class="noClick" width="24" height="22" src='https://vignette.wikia.nocookie.net/2007scape/images/a/aa/Stats.png'></img><h3>Overall</h3></th>
 					</tr>
 					
 				</table>

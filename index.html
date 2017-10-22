@@ -480,7 +480,7 @@
 				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
 
-			function updateRanks() {
+			updateRanks = function() {
 				var rank = 1;
 				for (var [key, value] of sortObject(totalLevel)) {
 				    var $ul, $ul2, $ul3;
@@ -510,13 +510,19 @@
 							updateRanks();
 						}
 				    });
-				})(i), 250);
+				})(i), 10);
 			}
 		}
 
-		(function ($) {
+		/*(function ($) {
 		    $(document).ready(run);
-		}(jQuery));
+		}(jQuery));*/
+		
+		window.onload = function() {
+			run().done(function() {
+				updateRanks();	
+			});
+		}
 
 		
 		</script>

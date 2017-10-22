@@ -507,17 +507,17 @@
 						attackXP[users[index]] = data.skills.Attack.XP;
 						strength[users[index]] = data.skills.Strength.Level;
 						strengthXP[users[index]] = data.skills.Strength.XP;
-						if (index == users.length-1) {
-							updateRanks();
-						}
+						//if (index == users.length-1) {updateRanks();}
 				    });
-				})(i), 10);
+				})(i), 1);
 			}
 		}
 
 		(function ($) {
 		    $(document).ready(run);
-			//updateRanks();
+			setTimeout(function() {
+				updateRanks();
+			}, 2000);
 		}(jQuery));
 
 		

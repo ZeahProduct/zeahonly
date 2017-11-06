@@ -501,13 +501,17 @@
 			for (i = 0; i < users.length; i++) {
 				setTimeout((function(index) {
 				    $.getJSON('https://cors-anywhere.herokuapp.com/https://files.pceasies.com/rs/hiscores_old.php?user=' + users[index], function (data) {       
+					if (!$.trim(data)) {
+						console.log("Data: " + data + ", failed for user: " + users[index]);
+					} else {
 						totalLevel[users[index]] = data.overall.Level;
 						totalXP[users[index]] = data.overall.XP;
 						attack[users[index]] = data.skills.Attack.Level;
 						attackXP[users[index]] = data.skills.Attack.XP;
 						strength[users[index]] = data.skills.Strength.Level;
 						strengthXP[users[index]] = data.skills.Strength.XP;
-						//if (index == users.length-1) {updateRanks();}
+					}
+					//if (index == users.length-1) {updateRanks();}
 				    });
 				})(i), 1);
 			}

@@ -751,12 +751,12 @@
 				var rank = 1;
 				for (var [key, value] of sortObject(totalLevel)) {
 				    var $ul, $ul2, $ul3;
-				    if ($.inArray(key, ultimates)) {
+				    if ($.inArray(key, ultimates) != -1) {
 					console.log(key + "   |   " + ultimates);
 					$ul = $('<ul class="ultimate" />').appendTo('#name'+rank);
 				    	$ul2 = $('<ul class="ultimate" />').appendTo('#level'+rank);
 				    	$ul3 = $('<ul class="ultimate" />').appendTo('#xp'+rank);
-				    } else if ($.inArray(key, hardcores)) {
+				    } else if ($.inArray(key, hardcores) != -1) {
 					$ul = $('<ul class="hard" />').appendTo('#name'+rank);  
 				    	$ul2 = $('<ul class="hard" />').appendTo('#level'+rank);
 				    	$ul3 = $('<ul class="hard" />').appendTo('#xp'+rank);

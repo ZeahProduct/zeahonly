@@ -634,8 +634,8 @@
 					selectedItems += 1;
 				}
 			    }
-			document.getElementById('barSpan').style.width = ((selectedItems/(anchors.length-1))*100)*5.56 + "px";
-			document.getElementById('barSpan').setAttribute('data-perc', (selectedItems/(anchors.length-1))*100);
+			document.getElementById('barSpan').style.width = ((selectedItems/(anchors.length))*100)*5.56 + "px";
+			document.getElementById('barSpan').setAttribute('data-perc', (selectedItems/(anchors.length))*100);
 		}
 		
 		   window.onload = function() {

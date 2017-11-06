@@ -51,11 +51,11 @@
 			}
 			
 			.iron {
-				 color: #a3a3a3;
+				 color: #d6d6d6;
 			}
 			
 			.hard {
-				color: #cc3737;
+				color: #e09d9d;
 			}
 
 			.content {
@@ -752,19 +752,14 @@
 				for (var [key, value] of sortObject(totalLevel)) {
 				    var $ul, $ul2, $ul3;
 				    if ($.inArray(key, ultimates) != -1) {
-					console.log(key + "   |   " + ultimates);
 					$ul = $('<ul class="ultimate" />').appendTo('#name'+rank);
-				    	$ul2 = $('<ul class="ultimate" />').appendTo('#level'+rank);
-				    	$ul3 = $('<ul class="ultimate" />').appendTo('#xp'+rank);
 				    } else if ($.inArray(key, hardcores) != -1) {
 					$ul = $('<ul class="hard" />').appendTo('#name'+rank);  
-				    	$ul2 = $('<ul class="hard" />').appendTo('#level'+rank);
-				    	$ul3 = $('<ul class="hard" />').appendTo('#xp'+rank);
 				    } else {
 					$ul = $('<ul class="iron" />').appendTo('#name'+rank);  
-				    	$ul2 = $('<ul class="iron" />').appendTo('#level'+rank);
-				    	$ul3 = $('<ul class="iron" />').appendTo('#xp'+rank);
 				    }
+					$ul2 = $('<ul />').appendTo('#level'+rank);
+					$ul3 = $('<ul />').appendTo('#xp'+rank);
 				    $ul.append(key);
 				    $ul2.append(value);
 				    $ul3.append(numberWithCommas(totalXP[key]));

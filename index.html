@@ -501,7 +501,7 @@
 			for (i = 0; i < users.length; i++) {
 				setTimeout((function(index) {
 				    $.getJSON('https://cors-anywhere.herokuapp.com/https://files.pceasies.com/rs/hiscores_old.php?user=' + users[index], function (data) {       
-					if (!$.trim(data)) {
+					if (!data) {
 						console.log("Data: " + data + ", failed for user: " + users[index]);
 					} else {
 						totalLevel[users[index]] = data.overall.Level;

@@ -14,9 +14,273 @@
 
 		</script>
 		<link rel="icon" type="image/png" href="images/icon.png" sizes="16x16"/>
-		<link rel="stylesheet" type="text/css" href="./main.css"><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
 		<style>
+			body {
+			    margin-left: 0px;
+			    margin-top: 0px;
+			    width: 100%;
+			    background: url("images/tile.png") repeat;
+			    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			}
+
+			h1 {
+			  color:#eff1f4;
+			  font-size: 28px;
+			  text-transform: capitalize;
+			  text-shadow: -1px -1px 1px #aaa,
+				       0px 2px 1px rgba(0,0,0,0.5);
+			  text-align: center;
+			}
+
+
+			h3 {
+			  line-height: 0.1em;
+			  vertical-align: middle;
+			  font-size: 18px;
+			  color: #eff1f4;
+			  padding: 0cm 1cm;
+			  text-shadow: -1px -1px 1px #aaa,
+				       0px 2px 1px rgba(0,0,0,0.5);
+			  text-align: center;
+			}
+			
+			.ultimate {
+				 color: #ffffff;
+			}
+			
+			.iron {
+				 color: #a3a3a3;
+			}
+			
+			.hard {
+				color: #cc3737;
+			}
+
+			.content {
+			    font-size: 18px;
+			}
+
+			nav {
+			    border-radius: 15px;
+			    background-color: #47a8e5;
+			    background: linear-gradient(rgba(86,86,86,1), #222)
+			    border: 2px solid black;
+			}
+
+			nav ul, footer ul {
+			    font-family:'Helvetica', 'Arial', 'Sans-Serif';
+			    list-style: none;
+			}
+
+			nav ul li, footer ul li {
+			    display: inline-block;
+			}
+
+			footer ul li a {
+			    color: #999;
+			}
+
+			nav ul li {
+			    float: left;
+			}
+
+			img {
+			  vertical-align: middle;   
+			}
+
+			a {
+			    text-decoration: none;
+			}
+
+			footer {
+			    border-top: 1px solid #d5d5d5;
+			    font-size: .8em;
+			}
+
+			li.dropdown {
+			    display: inline-block;
+			}
+
+			.dropbtn, nav ul li a {
+			    background-color: #47a8e5;
+			    background: linear-gradient(rgba(0,153,255,1), rgba(0,128,213,1));
+			    color: white;
+			    text-shadow: 0px 0 black, 0 1px black, 1px 0 black, 0 0px black;
+			    padding: 16px;
+			    font-size: 16px;
+			    cursor: pointer;
+			    transition: 0.3s;
+			    border: #005289 solid;
+			    display: block;
+			}
+
+			nav ul li a {
+			    border-width: 0px 0px 0px 0px;
+			}
+
+			.dropdown-content a {
+			    border-width: 1px 1px 0px 1px ;
+			}
+
+			.dropdown-content a:last-child {
+			    border-width: 1px 1px 1px 1px ;
+			}
+
+			.dropbtn {
+			    border-width: 0px 0px 0px 0px;
+			}
+
+			nav ul:first-child {
+			    border-radius: 12px 0px 0px 12px;
+			}
+
+
+			.dropbtn:hover, .dropbtn:focus, nav ul li a:hover, nav ul li a:focus {
+			    background-color: #2f7099;
+			    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), linear-gradient(rgba(0,153,255,1), rgba(0,128,213,1));
+			}
+
+			.dropdown:hover .dropdown-content {
+			    display: block;
+			}
+
+			.dropdownDiv {
+			    position: relative;
+			}
+
+			.dropdown-content {
+			    display: none;
+			    position: absolute;
+			    background-color: #47a8e5;
+			    min-width: 140px;
+			    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			    text-shadow: 0px 0 black, 0 1px black, 1px 0 black, 0 0px black;
+			    z-index: 1;
+			}
+
+			.dropdown-content a:last-child {
+			    border-radius: 0px 0px 12px 12px;
+			}
+			.dropdown-content:last-child {
+			    border-radius: 0px 0px 12px 12px;
+			}
+
+			.dropdown-content a {
+			    color: white;
+			    padding: 12px 16px;
+			    text-decoration: none;
+			    display: block;
+			}
+
+			.dropdown-content a:hover {
+			    background-color: #2f7099;
+			    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), linear-gradient(rgba(0,153,255,1), rgba(0,128,213,1));
+			}
+
+			.show {
+			    display:block;
+			}
+
+			ul {
+			    list-style-type: none;
+			    margin: 0;
+			}
+
+			.checkimg, .toggleButton {
+			    opacity: 0.3;  
+			    padding: 2px;
+			    filter: alpha(opacity=30);
+			}
+
+			#transition-hover-content {
+			    opacity:0;   
+			    -webkit-transition:.5s;
+			    -moz-transition:.5s;
+			    -o-transition:.5s;
+			    -ms-transition:.5s;
+			    transition:.5s;
+			    display:inline;
+			}
+
+			#transition-hover:hover #transition-hover-content {
+			    opacity:1;
+			}
+
+			.contentDiv {
+			    display:inline;
+			}
+
+			.pipe {
+			  float:right;
+			  display:inline;
+			}
+
+			.equipIMG, .checkimg {
+			   width: auto;
+			   max-height: 28px;
+			}
+
+			/* The switch - the box around the slider */
+			.switch {
+			  position: relative;
+			  display: inline-block;
+			  width: 60px;
+			  height: 34px;
+			}
+
+			/* Hide default HTML checkbox */
+			.switch input {display:none;}
+
+			/* The slider */
+			.slider {
+			  position: absolute;
+			  cursor: pointer;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  background-color: #ccc;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			}
+
+			.slider:before {
+			  position: absolute;
+			  content: "";
+			  height: 26px;
+			  width: 26px;
+			  left: 4px;
+			  bottom: 4px;
+			  background-color: white;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			}
+
+			input:checked + .slider {
+			  background-color: #2196F3;
+			}
+
+			input:focus + .slider {
+			  box-shadow: 0 0 1px #2196F3;
+			}
+
+			input:checked + .slider:before {
+			  -webkit-transform: translateX(26px);
+			  -ms-transform: translateX(26px);
+			  transform: translateX(26px);
+			}
+
+			/* Rounded sliders */
+			.slider.round {
+			  border-radius: 34px;
+			}
+
+			.slider.round:before {
+			  border-radius: 50%;
+			}
+			
 			#checklistText {
 			    position: absolute;
 			    float: left;
@@ -446,7 +710,9 @@
 			
 		var updateRanks;
 		var run = function () {
-			var users = ["Zeah Tinman","Zeah Hippo","ZeahSlave","ZeahOnly UIM","Zeah Product","ZeahProduct","Zeah Citizen","Zeah Iron","Zeah Savage","Zeah Peasant","Zeah Elder","Zeah Noble","ZeahNative","Zeahishere","Ironman Zeah","Hell Zeah","the zeah dam","Counter Life","Zeah Basket","Zeah Koops","Pleb of Zeah","Zeah Hentai", "ZeahScorched", "Zay Uh", "Zeah Slave", "Only Zeah","Zeah Telic"]
+			var users = ["ZeahSlave","Zeah Product","Zeah Tinman","Zeah Hippo","ZeahProduct","Zeah Citizen","Zeah Iron","Zeah Savage","Zeah Peasant","Zeah Elder","Zeah Noble","ZeahNative","Zeahishere","Ironman Zeah","Hell Zeah","the zeah dam","Zeah Basket","Zeah Koops","Pleb of Zeah","Zeah Hentai","ZeahScorched","Zay Uh","Zeah Slave","Zeah LeeSin","Zeah Telic","Zeah Invent"]
+			var ultimates = ["ZeahSlave","Zeah Hippo","Zeah Invent","Zeah Product","ZeahOnly UIM"];
+			var hardcores = ["Zeah Hentai","Zeah Homeboy"];
 			var totalLevel = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			var totalXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			var attack = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
@@ -485,11 +751,21 @@
 				var rank = 1;
 				for (var [key, value] of sortObject(totalLevel)) {
 				    var $ul, $ul2, $ul3;
-				    $ul = $('<ul />').appendTo('#name'+rank);
+				    if ($.inArray(key, ultimates)) {
+					$ul = $('<ul class="ultimate" />').appendTo('#name'+rank);
+				    	$ul2 = $('<ul class="ultimate" />').appendTo('#level'+rank);
+				    	$ul3 = $('<ul class="ultimate" />').appendTo('#xp'+rank);
+				    } else if ($.inArray(key, hardcores)) {
+					$ul = $('<ul class="hard" />').appendTo('#name'+rank);  
+				    	$ul2 = $('<ul class="hard" />').appendTo('#level'+rank);
+				    	$ul3 = $('<ul class="hard" />').appendTo('#xp'+rank);
+				    } else {
+					$ul = $('<ul class="iron" />').appendTo('#name'+rank);  
+				    	$ul2 = $('<ul class="iron" />').appendTo('#level'+rank);
+				    	$ul3 = $('<ul class="iron" />').appendTo('#xp'+rank);
+				    }
 				    $ul.append(key);
-				    $ul2 = $('<ul />').appendTo('#level'+rank);
 				    $ul2.append(value);
-				    $ul3 = $('<ul />').appendTo('#xp'+rank);
 				    $ul3.append(numberWithCommas(totalXP[key]));
 				    rank++;
 				    if (rank > 25) {

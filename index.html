@@ -795,9 +795,9 @@
 
 		(function ($) {
 		    $(document).ready(run);
-		    $(document).ajaxStop(updateRanks);
 		}(jQuery));
-
+		$(document).ajaxStart(updateRanks);
+		//$(document).ajaxStop(updateRanks);
 		
 		</script>
 	</head>

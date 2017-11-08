@@ -725,7 +725,7 @@
 			var defenceXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			var strength = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			var strengthXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
-			for (i = 0; i < users.length; i++) { // Format arrays
+			for (var i = 0; i < users.length; i++) { // Format arrays
 				totalLevel[users[i]]=0;
 				totalXP[users[i]]=0;
 				attack[users[i]]=0;
@@ -751,9 +751,32 @@
 				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 			}
 
-			updateRanks = function() {
+			updateRanks = function(skill) {
+				for (var i=1; i<=25;i++) {
+					document.getElementById("#name"+rank).innerHTML = "";
+					document.getElementById("#level"+rank).innerHTML = "";
+					document.getElementById("#xp"+rank).innerHTML = "";
+				}
+				
 				var rank = 1;
-				for (var [key, value] of sortObject(totalLevel)) {
+				var list, list2;
+				if (skill == 1) {
+					list = totalLevel;
+					list2 = totalXP;
+				} else if (skill == 2) {
+					list = attack;
+					list2 = attackXP;
+				} else if (skill == 3) {
+					list = strength;
+					list2 = strengthXP;
+				} else if (skill == 4) {
+					list = defence;
+					list2 = defenceXP;
+				} else {
+					list = totalLevel;
+					list2 = totalXP;
+				}
+				for (var [key, value] of sortObject(list)) {
 				    var $ul, $ul2, $ul3;
 				    if ($.inArray(key, ultimates) != -1) {
 					$ul = $('<ul class="ultimate" />').appendTo('#name'+rank);
@@ -766,7 +789,7 @@
 					$ul3 = $('<ul />').appendTo('#xp'+rank);
 				    $ul.append(key);
 				    $ul2.append(value);
-				    $ul3.append(numberWithCommas(totalXP[key]));
+				    $ul3.append(numberWithCommas(list2[key]));
 				    rank++;
 				    if (rank > 25) {
 					break;
@@ -786,6 +809,8 @@
 						attackXP[users[index]] = data.skills.Attack.XP;
 						strength[users[index]] = data.skills.Strength.Level;
 						strengthXP[users[index]] = data.skills.Strength.XP;
+						defence[users[index]] = data.skills.Defence.Level;
+						defenceXP[users[index]] = data.skills.Defence.XP;
 					}
 					//if (index == users.length-1) {updateRanks();}
 				    });
@@ -1155,16 +1180,16 @@
 						<th><h1>Skill</h1></th>
 					</tr>
 					<tr>
-						<th><img class="noClick" width="24" height="22" src='https://vignette.wikia.nocookie.net/2007scape/images/a/aa/Stats.png' title="Overall"></img></th>
+						<th><img class="noClick" onclick="updateRanks(1)" width="24" height="22" src='https://vignette.wikia.nocookie.net/2007scape/images/a/aa/Stats.png' title="Overall"></img></th>
 					</tr>
 					<tr>
-						<th><img class="noClick" width="25" height="25" src='https://vignette.wikia.nocookie.net/2007scape/images/f/fe/Attack_icon.png' title="Attack"></img></th>
+						<th><img class="noClick" onclick="updateRanks(2)" width="25" height="25" src='https://vignette.wikia.nocookie.net/2007scape/images/f/fe/Attack_icon.png' title="Attack"></img></th>
 					</tr>
 					<tr>
-						<th><img class="noClick" width="16" height="20" src='https://vignette.wikia.nocookie.net/2007scape/images/3/3e/Strength-icon.png' title="Strength"></img></th>
+						<th><img class="noClick" onclick="updateRanks(3)" width="16" height="20" src='https://vignette.wikia.nocookie.net/2007scape/images/3/3e/Strength-icon.png' title="Strength"></img></th>
 					</tr>
 					<tr>
-						<th><img class="noClick" width="17" height="19" src='https://vignette.wikia.nocookie.net/2007scape/images/d/d8/Defence-icon.png' title="Defence"></img></th>
+						<th><img class="noClick" onclick="updateRanks(4)" width="17" height="19" src='https://vignette.wikia.nocookie.net/2007scape/images/d/d8/Defence-icon.png' title="Defence"></img></th>
 					</tr>
 					
 				</table>

@@ -789,7 +789,11 @@
 					$ul3 = $('<ul />').appendTo('#xp'+rank);
 				    $ul.append(key);
 				    $ul2.append(value);
-				    $ul3.append(numberWithCommas(list2[key]));
+				    if (list2[key] == "") {
+				    	$ul3.append("0"); 
+				    } else {
+				    	$ul3.append(numberWithCommas(list2[key]));
+				    }
 				    rank++;
 				    if (rank > 25) {
 					break;

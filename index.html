@@ -725,6 +725,12 @@
 			var defenceXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			var strength = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			var strengthXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var ranged = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var rangedXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var prayer = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var prayerXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var magic = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
+			var magicXP = {}; // ["ZeahProduct": 0, "Zeah Slave": 0];
 			for (var i = 0; i < users.length; i++) { // Format arrays
 				totalLevel[users[i]]=0;
 				totalXP[users[i]]=0;
@@ -734,6 +740,12 @@
 				defenceXP[users[i]]=0;
 				strength[users[i]]=0;
 				strengthXP[users[i]]=0;
+				ranged[users[i]]=0;
+				rangedXP[users[i]]=0;
+				prayer[users[i]]=0;
+				prayerXP[users[i]]=0;
+				magic[users[i]]=0;
+				magicXP[users[i]]=0;
 			}
 
 			function sortObject(obj) {
@@ -772,6 +784,15 @@
 				} else if (skill == 4) {
 					list = defence;
 					list2 = defenceXP;
+				}  else if (skill == 5) {
+					list = ranged;
+					list2 = rangedXP;
+				}  else if (skill == 6) {
+					list = prayer;
+					list2 = prayerXP;
+				}  else if (skill == 7) {
+					list = magic;
+					list2 = magicXP;
 				} else {
 					list = totalLevel;
 					list2 = totalXP;
@@ -815,8 +836,13 @@
 						strengthXP[users[index]] = data.skills.Strength.XP;
 						defence[users[index]] = data.skills.Defence.Level;
 						defenceXP[users[index]] = data.skills.Defence.XP;
+						ranged[users[index]] = data.skills.Ranged.Level;
+						rangedXP[users[index]] = data.skills.Ranged.XP;
+						prayer[users[index]] = data.skills.Prayer.Level;
+						prayerXP[users[index]] = data.skills.Prayer.XP;
+						magic[users[index]] = data.skills.Magic.Level;
+						magicXP[users[index]] = data.skills.Magic.XP;
 					}
-					//if (index == users.length-1) {updateRanks();}
 				    });
 				})(i), 1);
 			}
@@ -1194,6 +1220,15 @@
 					</tr>
 					<tr>
 						<th><img class="noClick" onclick="updateRanks(4)" width="17" height="19" src='https://vignette.wikia.nocookie.net/2007scape/images/d/d8/Defence-icon.png' title="Defence"></img></th>
+					</tr>
+					<tr>
+						<th><img class="noClick" onclick="updateRanks(5)" width="23" height="23" src='https://vignette.wikia.nocookie.net/2007scape/images/7/72/Ranged-icon.png' title="Ranged"></img></th>
+					</tr>
+					<tr>
+						<th><img class="noClick" onclick="updateRanks(6)" width="23" height="23" src='https://vignette.wikia.nocookie.net/2007scape/images/2/24/Prayer-icon.png' title="Prayer"></img></th>
+					</tr>
+					<tr>
+						<th><img class="noClick" onclick="updateRanks(7)" width="25" height="23" src='https://vignette.wikia.nocookie.net/2007scape/images/7/77/Magic-icon.png' title="Magic"></img></th>
 					</tr>
 					
 				</table>

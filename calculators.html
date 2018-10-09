@@ -1,0 +1,312 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Zeah Only - Calculators</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/main.css" rel="stylesheet">
+
+		<!-- Tab image -->
+		<link rel="icon" type="image/png" href="images/icon.png" sizes="16x16"/>
+
+		<!-- Icons -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <script>
+    			points = 0;
+    			output = 0;
+    			minlevel = 2;
+    			maxlevel = 99;
+
+    			var levels = [1];
+    			var xps = [];
+
+    			for (lvl = 1; lvl <= maxlevel; lvl++)
+    			{
+    			  points += Math.floor(lvl + 300 * Math.pow(2, lvl / 7.));
+    			  if (lvl >= minlevel)
+    			  	levels.push(lvl);
+    			  	xps.push(output);
+    			  output = Math.floor(points / 4);
+    			}
+
+    			function getLvl(xp) {
+    				var arrayLength = xps.length;
+    				for (var i = 0; i < arrayLength; i++) {
+    				    if (xps[i] > xp) {
+    				    	return levels[i]-1;
+    				    }
+    				}
+    			}
+
+    			function getXp(level) {
+    				return xps[level-1];
+    			}
+
+    			function round(value, decimals) {
+    			    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+    			}
+
+    			function toArray(obj) {
+    			  var array = [];
+    			  for (var i = obj.length >>> 0; i--;) {
+    			    array[i] = obj[i];
+    			  }
+    			  return array;
+    			}
+
+    			function calc(startXp, endLvl, bookValue, num) {
+    				var books = 0;
+    				endXp = getXp(endLvl);
+    				while (startXp < endXp) {
+    					startLevel = getLvl(startXp);
+    					startXp = startXp + startLevel*bookValue
+    					books = books + 1
+    				}
+    				document.getElementById("lampResults" + num.toString()).innerHTML = "<h4 class='green'>" + books.toString() + " needed</h4>";
+    			}
+
+    			function lamp(startXp, endLvl, type) {
+    			    if (type == "rc") {
+    				calc(Number(startXp), Number(endLvl), 4, 1);
+    			    }
+    			    if (type == "magic") {
+    				calc(Number(startXp), Number(endLvl), 11, 2);
+    			    }
+    			    if (type == "lamp") {
+    				calc(Number(startXp), Number(endLvl), 10, 3);
+    			    }
+    			    if (type == "book") {
+    				calc(Number(startXp), Number(endLvl), 15, 4);
+    			    }
+    			    if (type == "relic50") {
+    				calc(Number(startXp), Number(endLvl), 50, 5);
+    			    }
+    			    if (type == "relic150") {
+    				calc(Number(startXp), Number(endLvl), 150, 6);
+    			    }
+    			    return false;
+    			}
+
+
+    			window.onload = function() {
+    				var anchors = document.getElementsByClassName('toggleCalc1');
+    				var anchors = toArray(anchors);
+      			var anchors2 = document.getElementsByClassName('toggleCalc2');
+      			var anchors2 = toArray(anchors2);
+            for(var i = 0; i < anchors.length; i++) {
+    				    anchors[i].style.opacity = "0.5";
+    				    anchors[0].style.opacity = "1";
+    				    document.getElementById(i.toString()).style.display='none';
+    				    document.getElementById("0").style.display='block';
+    	    			    anchors[i].addEventListener('click',function() {
+    					var arr = Array.prototype.slice.call(anchors);
+    					redirect(this, arr.indexOf(this));
+    				    }, false);
+    				}
+            for(var i = 0; i < anchors2.length; i++) {
+    				    anchors2[i].style.opacity = "0.5";
+    				    anchors2[0].style.opacity = "1";
+    				    document.getElementById("a" + i.toString()).style.display='none';
+    				    document.getElementById("a0").style.display='block';
+    	    			    anchors2[i].addEventListener('click',function() {
+    					var arr = Array.prototype.slice.call(anchors2);
+    					redirect2(this, arr.indexOf(this));
+    				    }, false);
+    				}
+
+
+    		  };
+    		  function redirect(element, i) {
+    			       	var images = document.getElementsByClassName('toggleCalc1');
+    			       	images = toArray(images);
+          				for(var t = 0; t < images.length; t++) {
+          			     	images[t].style.opacity = "0.5";
+          				   	document.getElementById(t.toString()).style.display='none';
+          			  }
+          				element.style.opacity = "1";
+          				element.style.filter = 'alpha(opacity=100)';
+            			document.getElementById(i.toString()).style.display='block';
+    			}
+    		  function redirect2(element, i) {
+    			       	var images2 = document.getElementsByClassName('toggleCalc2');
+    			       	images2 = toArray(images2);
+          				for(var t = 0; t < images2.length; t++) {
+          			     	images2[t].style.opacity = "0.5";
+          				   	document.getElementById("a" + t.toString()).style.display='none';
+    			      	}
+          				element.style.opacity = "1";
+          				element.style.filter = 'alpha(opacity=100)';
+            			document.getElementById("a" + i.toString()).style.display='block';
+    			}
+    		</script>
+
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="map.html">Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="checklist.html">Checklist</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="achievements.html">Achievements</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="calculators.html">Calculators
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <!-- Content Row -->
+      <div class="row">
+        <div class="col-lg-5 bg-secondary text-white my-4 mx-2 card-body" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+          <h2>Book Calculator</h2>
+				        <img class="btn btn-primary toggleCalc1" src="images/rc.png">
+				        <img class="btn btn-primary toggleCalc1" src="images/magic.png">
+				        <br>
+				        	<form id="0" onsubmit="return lamp(document.getElementById('currentXp1').value, document.getElementById('endLvl1').value, 'rc');">
+						  	<fieldset>
+						    <legend class="h3">Runecraft (4x)</legend>
+						    <h5>Starting Experience:</h5>
+						    <input type="text" id="currentXp1" class="form-control"><br>
+						    <h5>Ending Level:</h5>
+						    <input type="text" id="endLvl1" class="form-control"><br>
+						    <input type="submit" value="Submit" class="btn btn-success">
+                <br><br>
+						    <div id="lampResults1"></div>
+						  </fieldset>
+						</form>
+
+						<form id="1" style="display:none;" onsubmit="return lamp(document.getElementById('currentXp2').value, document.getElementById('endLvl2').value, 'magic');">
+						  	<fieldset>
+						    <legend class="h3">Magic (11x)</legend>
+						    <h5>Starting Experience:</h5>
+						    <input type="text" id="currentXp2" class="form-control"><br>
+						    <h5>Ending Level:</h5>
+						    <input type="text" id="endLvl2" class="form-control"><br>
+						    <input type="submit" value="Submit" class="btn btn-success">
+                <br><br>
+						    <div id="lampResults2"></div>
+						  </fieldset>
+						</form>
+        </div>
+
+        <div class="col-lg-5 bg-secondary text-white my-4 mx-2 card-body" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+          <h2>Lamp Calculator</h2>
+				        <img class="btn btn-primary toggleCalc2" src="images/lamp.png">
+				        <img class="btn btn-primary toggleCalc2" src="images/book.png">
+				        <img class="btn btn-primary toggleCalc2" src="images/relic50.png">
+				        <img class="btn btn-primary toggleCalc2" src="images/relic150.png">
+				        <br>
+				        	<form id="a0" onsubmit="return lamp(document.getElementById('currentXp3').value, document.getElementById('endLvl3').value, 'lamp');">
+						  	<fieldset>
+						    <legend class="h3">Genie Lamp (10x)</legend>
+						    <h5>Starting Experience:</h5>
+						    <input type="text" id="currentXp3" class="form-control"><br>
+						    <h5>Ending Level:</h5>
+						    <input type="text" id="endLvl3" class="form-control"><br>
+						    <input type="submit" value="Submit" class="btn btn-success">
+                <br><br>
+						    <div id="lampResults3"></div>
+						  </fieldset>
+						</form>
+
+						<form id="a1" style="display:none;" onsubmit="return lamp(document.getElementById('currentXp4').value, document.getElementById('endLvl4').value, 'book');">
+						  	<fieldset>
+						    <legend class="h3">Book of Knowledge (15x)</legend>
+						    <h5>Starting Experience:</h5>
+						    <input type="text" id="currentXp4" class="form-control"><br>
+						    <h5>Ending Level:</h5>
+						    <input type="text" id="endLvl4" class="form-control"><br>
+						    <input type="submit" value="Submit" class="btn btn-success">
+                <br><br>
+						    <div id="lampResults4"></div>
+						  </fieldset>
+						</form>
+
+						<form id="a2" style="display:none;" onsubmit="return lamp(document.getElementById('currentXp5').value, document.getElementById('endLvl5').value, 'relic50');">
+						  	<fieldset>
+						    <legend class="h3">Dark Relic (50x)</legend>
+						    <h5>Starting Experience:</h5>
+						    <input type="text" id="currentXp5" class="form-control"><br>
+						    <h5>Ending Level:</h5>
+						    <input type="text" id="endLvl5" class="form-control"><br>
+						    <input type="submit" value="Submit" class="btn btn-success">
+                <br><br>
+						    <div id="lampResults5"></div>
+						  </fieldset>
+						</form>
+
+						<form id="a3" style="display:none;" onsubmit="return lamp(document.getElementById('currentXp6').value, document.getElementById('endLvl6').value, 'relic150');">
+						  	<fieldset>
+						    <legend class="h3">Dark Relic (150x)</legend>
+						    <h5>Starting Experience:</h5>
+						    <input type="text" id="currentXp6" class="form-control"><br>
+						    <h5>Ending Level:</h5>
+						    <input type="text" id="endLvl6" class="form-control"><br>
+						    <input type="submit" value="Submit" class="btn btn-success">
+                <br><br>
+						    <div id="lampResults6"></div>
+						  </fieldset>
+						</form>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">
+					<a href="https://discord.gg/q73k9Dn" class="btn btn-primary"><i class="fab fa-discord"></i> Discord</a>
+					<a href="https://twitter.com/zeahproduct" class="btn btn-primary"><i class="fab fa-twitter"></i> Twitter</a><br/><br/>
+					Copyright &copy; Zeah Only 2018
+				</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

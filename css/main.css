@@ -58,19 +58,15 @@ a {
   position: relative;
   color: white;
   width:100%;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
 }
 
 #frontbar {
-  background: repeating-linear-gradient(
-  -45deg,
-  #025bc3,
-  #025bc3 10px,
-  #fff 10px,
-  #fff 20px
-  );
+  background: linear-gradient(#0076ff, #004392);
   border-radius: 0px;
   height: 40px;
   position: absolute;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
 }
 
 #checklist {
@@ -109,4 +105,6 @@ a {
   width: 100%;
   margin: 0 auto;
   display: inline-block;
+  position: absolute;
+  z-index: 20;
 }

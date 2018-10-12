@@ -1,7 +1,7 @@
 var checklistDiv = document.getElementById("checklist");
 var bar;
 var backbar = document.getElementById("backbar");
-var itemRatio = 3.75 // Total Items / 100
+var itemRatio = 1.33 // Total Items / 100
 
 function imgError(image) {
     image.onerror = "";

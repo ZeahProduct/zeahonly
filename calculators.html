@@ -80,22 +80,30 @@
 
     			function lamp(startXp, endLvl, type) {
     			    if (type == "rc") {
-    				calc(Number(startXp), Number(endLvl), 4, 1);
+    				        calc(Number(startXp), Number(endLvl), 4, 1);
     			    }
     			    if (type == "magic") {
-    				calc(Number(startXp), Number(endLvl), 11, 2);
+    				        calc(Number(startXp), Number(endLvl), 11, 2);
     			    }
     			    if (type == "lamp") {
-    				calc(Number(startXp), Number(endLvl), 10, 3);
+    				        calc(Number(startXp), Number(endLvl), 10, 3);
     			    }
     			    if (type == "book") {
-    				calc(Number(startXp), Number(endLvl), 15, 4);
+    				        calc(Number(startXp), Number(endLvl), 15, 4);
     			    }
     			    if (type == "relic50") {
-    				calc(Number(startXp), Number(endLvl), 50, 5);
+    				        calc(Number(startXp), Number(endLvl), 50, 5);
     			    }
     			    if (type == "relic150") {
-    				calc(Number(startXp), Number(endLvl), 150, 6);
+    				        calc(Number(startXp), Number(endLvl), 150, 6);
+    			    }
+    			    return false;
+    			}
+
+    			function rate(level, type) {
+    			    if (type == "masterfarmer") {
+                var chance = ((((Number(level)*150)+(99*90) - 240)/98)/255)*100; // https://twitter.com/JagexKieren/status/691576301296164865
+                document.getElementById("rateResults1").innerHTML = "<h4 class='green'>" + chance.toString() + "% Chance</h4>";
     			    }
     			    return false;
     			}
@@ -284,6 +292,24 @@
 						  </fieldset>
 						</form>
         </div>
+
+        <br/>
+
+        <div class="col-lg-5 bg-secondary text-white my-4 mx-2 card-body" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+          <h2>Success Rate Calculator</h2>
+				        <img class="btn btn-primary" src="images/Master_Farmer.png">
+				        <br>
+				        	<form id="a0" onsubmit="return rate(document.getElementById('Lvl').value, 'masterfarmer');">
+						  	<fieldset>
+						    <legend class="h3">Master Farmers</legend>
+						    <h5>Thieving Level:</h5>
+						    <input type="text" id="Lvl" class="form-control"><br>
+						    <input type="submit" value="Submit" class="btn btn-success">
+                <br><br>
+						    <div id="rateResults1"></div>
+						  </fieldset>
+						</form>
+          </div>
 
       </div>
       <!-- /.row -->

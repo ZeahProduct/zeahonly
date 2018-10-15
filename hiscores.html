@@ -1,5 +1,5 @@
 
-<!DOCrank html>
+<!DOCTYPE html>
 <html lang="en">
 
   <head>
@@ -330,9 +330,13 @@
       }
     }
 
-    function sortTableAlpha(n) {
+    function sortTableAlpha(n, tab) {
       var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-      table = document.getElementById("hiscores");
+      if (tab == 0) {
+        table = document.getElementById("hiscores");
+      } else {
+        table = document.getElementById("alternate_hiscores");
+      }
       switching = true;
       dir = "asc";
       while (switching) {

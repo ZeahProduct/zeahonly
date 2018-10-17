@@ -70,7 +70,7 @@
           <p class="text-white m-0">Contact us if you're a Zeah Ironman with 250+ total and you're not on this list!</p>
         </div>
       </div>
-      <img src="images/loading.gif" class="loader" style="margin: 0 auto;display:inline-block;text-align:center;">
+      <img src="images/loading.gif" class="loader">
       <br/>
       <table class="table table-striped" id="hiscores">
         <thead>
@@ -82,6 +82,16 @@
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td class="rank">1</td>
+            <td class="total_level">1889</td><td class="total_xp">143,504,491</td>
+            <td><img src="images/ironman.png"><span> <s>ZeahProduct</s></span></td>
+          </tr>
+            <tr>
+              <td class="rank">2</td>
+              <td class="total_level">1290</td><td class="total_xp">12,750,000</td>
+              <td><img src="images/ironman.png"><span> <s>Zeah Citizen</s></span></td>
+            </tr>
           <tr>
             <td class="rank">?</td>
             <td class="total_level">???</td><td class="total_xp">?????</td>
@@ -252,23 +262,23 @@
         <tbody>
           <tr>
             <td>1</td>
-            <td>1889</td>
-            <td><img src="images/ironman.png"> ZeahProduct</td>
-          </tr>
-          <tr>
-            <td>2</td>
             <td>1640</td>
             <td><img src="images/ironman.png"> Zeah Hacked</td>
           </tr>
           <tr>
+            <td>2</td>
+            <td>905</td>
+            <td><img src="images/ironman.png"> Zeah Captive</td>
+          </tr>
+          <tr>
             <td>3</td>
-            <td>1290</td>
-            <td><img src="images/ironman.png"> Zeah Citizen</td>
+            <td>90</td>
+            <td>Zeah 2</td>
           </tr>
           <tr>
             <td>4</td>
-            <td>905</td>
-            <td><img src="images/ironman.png"> Zeah Captive</td>
+            <td>66</td>
+            <td>Zeah 1</td>
           </tr>
         </tbody>
       </table>
@@ -387,7 +397,7 @@
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 
-    var totalLevels = [];
+    var totalLevels = [1290, 1889];
 
   	function lookup(elem, username) {
   		$.ajax({

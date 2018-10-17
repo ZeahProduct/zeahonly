@@ -70,6 +70,7 @@
           <p class="text-white m-0">Contact us if you're a Zeah Ironman with 250+ total and you're not on this list!</p>
         </div>
       </div>
+      <img src="images/loading.gif" class="loader" style="margin: 0 auto;display:inline-block;text-align:center;">
       <br/>
       <table class="table table-striped" id="hiscores">
         <thead>
@@ -405,16 +406,19 @@
   		        $(elem).parent().parent().find(".total_xp").html(numberWithCommas(totalXP));
               $(".rank").each(function() {
                   $(this).html(totalLevels.indexOf(parseInt($(this).parent().find(".total_level").html())) + 1);
-              })
+              });
+              sortTable(0, 0);
   		    }
   		});
   	}
 
     $(".username").each(function() {
         lookup(this, this.innerHTML.trim());
-    })
+    });
 
-    sortTable(0, 0);
+    $(document).ajaxStop(function () {
+      $(".loader").hide();
+    });
     </script>
 
   </body>

@@ -102,7 +102,7 @@
 
     			function rate(level, type) {
     			    if (type == "masterfarmer") {
-                var chance = ((((Number(level)*150)+(99*90) - 240)/98)/255)*100; // https://twitter.com/JagexKieren/status/691576301296164865
+                var chance = (((((Number(level)*150) + (99*90) - 240)/98)/255)*100).toFixed(2); // https://twitter.com/JagexKieren/status/691576301296164865
                 document.getElementById("rateResults1").innerHTML = "<h4 class='green'>" + chance.toString() + "% Chance</h4>";
     			    }
     			    return false;
@@ -204,7 +204,7 @@
     <div class="container">
       <!-- Content Row -->
       <div class="row">
-        <div class="col-lg-5 bg-info text-white my-4 mx-2 card-body card-shadow" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+        <div class="col-lg-5 my-4 mx-2 card-body card-shadow" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
           <h2>Arceuus Book Calculator</h2>
 				        <img class="btn btn-primary toggleCalc1" src="images/rc.png">
 				        <img class="btn btn-primary toggleCalc1" src="images/magic.png">
@@ -217,8 +217,8 @@
 						    <h5>Ending Level:</h5>
 						    <input type="text" id="endLvl1" class="form-control"><br>
 						    <input type="submit" value="Submit" class="btn btn-success">
-                <br><br>
-						    <div id="lampResults1"></div>
+                <hr>
+						    <div id="lampResults1"><h4>???</h4></div>
 						  </fieldset>
 						</form>
 
@@ -230,13 +230,13 @@
 						    <h5>Ending Level:</h5>
 						    <input type="text" id="endLvl2" class="form-control"><br>
 						    <input type="submit" value="Submit" class="btn btn-success">
-                <br><br>
-						    <div id="lampResults2"></div>
+                <hr>
+						    <div id="lampResults2"><h4>???</h4></div>
 						  </fieldset>
 						</form>
         </div>
 
-        <div class="col-lg-5 bg-info text-white my-4 mx-2 card-body card-shadow" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+        <div class="col-lg-5 my-4 mx-2 card-body card-shadow" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
           <h2>Lamp Calculator</h2>
 				        <img class="btn btn-primary toggleCalc2" src="images/lamp.png">
 				        <img class="btn btn-primary toggleCalc2" src="images/book.png">
@@ -251,8 +251,8 @@
 						    <h5>Ending Level:</h5>
 						    <input type="text" id="endLvl3" class="form-control"><br>
 						    <input type="submit" value="Submit" class="btn btn-success">
-                <br><br>
-						    <div id="lampResults3"></div>
+                <hr>
+						    <div id="lampResults3"><h4>???</h4></div>
 						  </fieldset>
 						</form>
 
@@ -264,8 +264,8 @@
 						    <h5>Ending Level:</h5>
 						    <input type="text" id="endLvl4" class="form-control"><br>
 						    <input type="submit" value="Submit" class="btn btn-success">
-                <br><br>
-						    <div id="lampResults4"></div>
+                <hr>
+						    <div id="lampResults4"><h4>???</h4></div>
 						  </fieldset>
 						</form>
 
@@ -277,8 +277,8 @@
 						    <h5>Ending Level:</h5>
 						    <input type="text" id="endLvl5" class="form-control"><br>
 						    <input type="submit" value="Submit" class="btn btn-success">
-                <br><br>
-						    <div id="lampResults5"></div>
+                <hr>
+						    <div id="lampResults5"><h4>???</h4></div>
 						  </fieldset>
 						</form>
 
@@ -290,15 +290,15 @@
 						    <h5>Ending Level:</h5>
 						    <input type="text" id="endLvl6" class="form-control"><br>
 						    <input type="submit" value="Submit" class="btn btn-success">
-                <br><br>
-						    <div id="lampResults6"></div>
+                <hr>
+						    <div id="lampResults6"><h4>???</h4></div>
 						  </fieldset>
 						</form>
         </div>
 
         <br/>
 
-        <div class="col-lg-5 bg-info text-white my-4 mx-2 card-body card-shadow" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+        <div class="col-lg-5 my-4 mx-2 card-body card-shadow" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
           <h2>Success Rate Calculator</h2>
 				        <img class="btn btn-primary" src="images/Master_Farmer.png">
 				        <br>
@@ -308,8 +308,8 @@
 						    <h5>Thieving Level:</h5>
 						    <input type="text" id="Lvl" class="form-control"><br>
 						    <input type="submit" value="Submit" class="btn btn-success">
-                <br><br>
-						    <div id="rateResults1"></div>
+                <hr>
+						    <div id="rateResults1"><h4>???</h4></div>
 						  </fieldset>
 						</form>
           </div>

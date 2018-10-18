@@ -149,7 +149,7 @@ tr:hover {
 }
 
 .navbar {
-  background: linear-gradient(60deg,#0055b1,#007bff);
+  background: linear-gradient(60deg,#5d33d6,#1856c7);
   box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 0, 0, 0.4);
 }
 
@@ -195,6 +195,17 @@ tr:hover {
   -moz-box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 0, 0, 0.4);
   box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 0, 0, 0.4);
+  margin: 5px 0px 10px 5px;
+}
+
+.btn-success {
+  border:none;
+  -o-box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 255, 0, 0.4);
+  -icab-box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 255, 0, 0.4);
+  -khtml-box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 255, 0, 0.4);
+  -moz-box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 255, 0, 0.4);
+  -webkit-box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 255, 0, 0.4);
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,.14), 0 7px 10px -5px rgba(0, 255, 0, 0.4);
   margin: 5px 0px 10px 5px;
 }
 

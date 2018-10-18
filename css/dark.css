@@ -1,12 +1,17 @@
 body {
   padding-top: 54px;
-  background: #eeeeee;
+  background: #1a2035;
+  color: #b3b8ca;
 }
 
 @media (min-width: 992px) {
   body {
     padding-top: 56px;
   }
+}
+
+footer {
+  background-color: #2c3146;
 }
 
 .navbar-brand img {
@@ -37,12 +42,12 @@ a {
 .table td, .table th {
     padding: .75rem;
     vertical-align: top;
-    border-top: 1px solid #bbb;
+    border-top: 1px solid #0b0d0e;
 }
 
 .table thead th {
     vertical-align: bottom;
-    border-bottom: 2px solid #bbb;
+    border-bottom: 2px solid #0b0d0e;
 }
 
 tr:hover {
@@ -69,9 +74,9 @@ tr:hover {
 }
 
 #backbar {
-  background: #ccc;
+  background: #121625;
   border-radius: 0px;
-  border: 2px solid #aaa;
+  border: 2px solid #0a0c15;
   height: 44px;
   position: relative;
   color: white;
@@ -99,8 +104,8 @@ tr:hover {
 
 #checklist {
   text-align: center;
-  background: #ccc;
-  border: 2px solid #aaa;
+  background: #121625;
+  border: 2px solid #0a0c15;
   display: inline-block;
   padding: 5px;
   margin: 0 auto;
@@ -194,16 +199,13 @@ tr:hover {
 }
 
 .card, .card-shadow {
+  background: #202940;
   -o-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
   -icab-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
   -khtml-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.4);
-}
-
-footer {
-  background: #ddd;
 }
 
 .bg-info {

@@ -14,10 +14,9 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
 
-    <!-- Custom styles for this template -->
-    <link href="css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" id="mainstyle">
+    <script src="js/themes.js"></script>
 
 		<!-- Tab image -->
 		<link rel="icon" type="image/png" href="images/icon.png" sizes="16x16"/>
@@ -28,9 +27,10 @@
     <style>
       iframe {
         border-radius: 4px;
-        border: 1px solid #888;
+        border: 1px solid rgba(100,100,100,0.5);
       }
     </style>
+
 
   </head>
 
@@ -83,7 +83,7 @@
           <h1>Zeah Only Ironmen</h1>
           <p>A Zeah Only Ironman is a unique account build on the game OldSchool RuneScape. The idea behind the account is to stay on the region, Zeah, as much as possible.</p>
           <h1>About</h1>
-          <p>The goal of this website is to provide useful tools for Zeah Ironmen, such as the interactive map to the left.</p>
+          <p>The goal of this website is to provide useful tools for Zeah Ironmen, such as the interactive map shown.</p>
           <a class="btn btn-primary btn-lg" href="map.html"><i class="fas fa-map"></i> View the full map!</a>
         </div>
         <!-- /.col-md-4 -->
@@ -91,7 +91,7 @@
       <!-- /.row -->
 
       <!-- Call to Action Well -->
-      <div class="card text-white bg-secondary my-4 text-center">
+      <div class="card text-white bg-info my-4 text-center">
         <div class="card-body">
           <p class="text-white m-0">This website is still being developed. Expect many improvements!</p>
         </div>
@@ -153,12 +153,11 @@
           </div>
         </div>
 
-
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
               <h2 class="card-title">Guides</h2>
-              <p class="card-text">Information and guides for various activities will be added in the future.</p>
+              <p class="card-text">Information and guides for various activities will be added soon.</p>
             </div>
             <div class="card-footer">
               <a href="#" class="btn btn-danger"><i class="fas fa-times" style="color:white;"></i> Coming Soon!</a>
@@ -166,15 +165,14 @@
           </div>
         </div>
 
-
         <div class="col-md-4 mb-4">
           <div class="card h-100">
             <div class="card-body">
               <h2 class="card-title">Themes</h2>
-              <p class="card-text">Custom website themes will be available soon.</p>
+              <p class="card-text">Themes allow you to customize the website to your preference.<br/><br/>More options might be available in the future.</p>
             </div>
             <div class="card-footer">
-              <a href="#" class="btn btn-danger"><i class="fas fa-times" style="color:white;"></i> Coming Soon!</a>
+              <button id="stylesheet1" class="btn btn-light"><i class="fas fa-sun"></i> Light</button><button id="stylesheet2" class="btn btn-dark"><i class="fas fa-moon"></i> Dark</button>
             </div>
           </div>
         </div>
@@ -186,7 +184,7 @@
     <!-- /.container -->
 
     <!-- Footer -->
-    <footer class="py-5 bg-dark">
+    <footer class="py-5">
       <div class="container">
         <p class="m-0 text-center text-white">
 					<a href="https://discord.gg/q73k9Dn" class="btn btn-primary"><i class="fab fa-discord"></i> Discord</a>

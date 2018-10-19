@@ -43,14 +43,20 @@
 				}
 			    $('#mapImage').css('MozTransform','scale(' + scale + ')');
 			    $('#mapImage').css('transform','scale(' + scale + ')');
-				$(window).scrollLeft(posX);
-				$(window).scrollTop(posY);
+					$('#mapImage').css({
+					    'transform-origin':         '' + posX + 'px ' + posY + 'px 0px',
+					    '-webkit-transform-origin': '' + posX + 'px ' + posY + 'px 0px'
+					});
 			}
 
 			function defaultZoom(scaleAmount) {
 				scale = 1;
-			    $('#mapImage').css('MozTransform','scale(1)');
-			    $('#mapImage').css('transform','scale(1)');
+			  $('#mapImage').css('MozTransform','scale(1)');
+			  $('#mapImage').css('transform','scale(1)');
+				$('#mapImage').css({
+						'transform-origin':         '' + posX + 'px ' + posY + 'px 0px',
+						'-webkit-transform-origin': '' + posX + 'px ' + posY + 'px 0px'
+				});
 			}
 
 			function moveUnder() {

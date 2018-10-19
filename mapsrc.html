@@ -52,6 +52,26 @@
 			    $('#mapImage').css('MozTransform','scale(1)');
 			    $('#mapImage').css('transform','scale(1)');
 			}
+
+			function toggleFullScreen() {
+			  if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) {
+			    if (document.documentElement.requestFullscreen) {
+			      document.documentElement.requestFullscreen();
+			    } else if (document.documentElement.mozRequestFullScreen) {
+			      document.documentElement.mozRequestFullScreen();
+			    } else if (document.documentElement.webkitRequestFullscreen) {
+			      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+			    }
+			  } else {
+			    if (document.cancelFullScreen) {
+			      document.cancelFullScreen();
+			    } else if (document.mozCancelFullScreen) {
+			      document.mozCancelFullScreen();
+			    } else if (document.webkitCancelFullScreen) {
+			      document.webkitCancelFullScreen();
+			    }
+			  }
+			}
 	    </script>
 		<style>
 			body {
@@ -97,7 +117,8 @@
 		<div class="toolbar">
 			<i class="fas fa-search-plus" onclick="zoom(0.1)"></i><br /><br />
 			<i class="fas fa-search-minus" onclick="zoom(-0.1)"></i><br /><br />
-			<i class="fas fa-search" onclick="defaultZoom()"></i>
+			<i class="fas fa-search" onclick="defaultZoom()"></i><br /><br />
+			<i class="fas fa-expand" onclick="toggleFullScreen()"></i>
 		</div>
 		<img src="images/map.jpg" draggable="false" id="mapImage" ondragstart="return false;">
 	</body>

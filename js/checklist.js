@@ -19,7 +19,7 @@ function toggle(image) {
 			localStorage['itemsChecked'] = parseFloat(localStorage['itemsChecked']) - 1;
 		}
 		localStorage[image.src] = image.style.opacity;
-		backbar.innerHTML = '<div id="frontbar"></div><h4>' + Math.ceil(parseFloat(localStorage['itemsChecked']) / itemRatio) + '%</h4>';
+		backbar.innerHTML = '<div id="frontbar"></div><h4>' + Math.floor(parseFloat(localStorage['itemsChecked']) / itemRatio) + '%</h4>';
 		bar = document.getElementById("frontbar");
 		bar.style.width = parseFloat(localStorage['itemsChecked']) / itemRatio + '%';
 	}
@@ -45,6 +45,6 @@ for (var i = 0; i < checklistItems.length; i++) {
 	}
 }
 
-backbar.innerHTML = '<div id="frontbar"></div><h4>' + Math.ceil(parseFloat(localStorage['itemsChecked']) / itemRatio) + '%</h4>'
+backbar.innerHTML = '<div id="frontbar"></div><h4>' + Math.floor(parseFloat(localStorage['itemsChecked']) / itemRatio) + '%</h4>'
 bar = document.getElementById("frontbar");
 bar.style.width = parseFloat(localStorage['itemsChecked']) / itemRatio + '%'

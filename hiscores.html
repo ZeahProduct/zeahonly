@@ -188,6 +188,11 @@
           <tr>
             <td class="rank">?</td>
             <td class="total_level">???</td><td class="total_xp">?????</td>
+            <td><img src="images/ironman.png"><span class="username"> ZeahKnight</span></td>
+          </tr>
+          <tr>
+            <td class="rank">?</td>
+            <td class="total_level">???</td><td class="total_xp">?????</td>
             <td><img src="images/ironman.png"><span class="username"> Zeahlous</span></td>
           </tr>
           <tr>
@@ -475,11 +480,11 @@
               let totalRow = dataArray[0];
               let totalArray = totalRow.split(",");
               let totalLevel = totalArray[1];
-              let totalXP = totalArray[2].toString().replace(numberWithCommas, ",");;
+              let totalXP = totalArray[2].toString().replace(numberWithCommas, ",");
               totalLevels.push(parseInt(totalLevel));
               totalLevels.sort(function(a, b){return b-a});
-  		        parent.find(".total_level").html(totalLevel);
-  		        parent.find(".total_xp").html(numberWithCommas(totalXP));
+  		        parent.find(".total_level").html(totalLevel.toString().replace(numberWithCommas, ","));
+  		        parent.find(".total_xp").html(totalXP);
               $(".rank").each(function() {
                   $(this).html(totalLevels.indexOf(parseInt($(this.parentNode).find(".total_level").html())) + 1);
               });

@@ -475,7 +475,7 @@
   	function lookup(elem, username) {
   		$.ajax({
   		    rank: "GET",
-  		    url: 'https://cors-anywhere.herokuapp.com/https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player=' + username,
+  		    url: 'https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player=' + username,
   		    success: function(data) {
               let parent = $(elem.parentNode.parentNode);
               let dataArray = data.split("\n");

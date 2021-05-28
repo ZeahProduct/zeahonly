@@ -237,12 +237,6 @@
           <tr>
             <td class="rank">?</td>
             <td class="total_level">???</td><td class="total_xp">?????</td>
-            <td><img src="images/ironman.png" title="Ironman"><span class="username"> Dark Totems</span></td>
-            <td><img src="images/herblore.png" title="Herblore"></td>
-          </tr>
-          <tr>
-            <td class="rank">?</td>
-            <td class="total_level">???</td><td class="total_xp">?????</td>
             <td><img src="images/ironman.png" title="Ironman"><span class="username"> Zeah Hero</span></td>
             <td><img src="images/herblore.png" title="Herblore"> <img src="images/slayer.png" title="Slayer"></td>
           </tr>
@@ -493,9 +487,6 @@
               totalLevels.sort(function(a, b){return b-a});
   		        parent.find(".total_level").html(totalLevel.toString().replace(numberWithCommas, ","));
   		        parent.find(".total_xp").html(totalXP);
-              $(".rank").each(function() {
-                $(this).html(totalLevels.indexOf(parseInt($(this.parentNode).find(".total_level").html())) + 1);
-              });
   		    }
   		});
   	}
@@ -506,6 +497,12 @@
 
     $(document).ajaxStop(function () {
       $(".loader").hide();
+      $(".rank").each(function() {
+        $(this).html(totalLevels.indexOf(parseInt($(this).parent().find(".total_level").html().replaceAll(",", ""))) + 1);
+        if (this.innerText === "0") {
+          this.parentNode.style.display = "none";
+        }
+      });
       sortTable(0, 0);
     });
     </script>

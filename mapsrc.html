@@ -61,14 +61,12 @@
 
 			function moveUnder() {
 					document.getElementById("mapImage").src = "images/underground.jpg";
-					$("#mapImage").attr("usemap", "#underground-map");
 					document.getElementById("downButton").style.display = "none";
 					document.getElementById("upButton").style.display = "inline-block";
 			}
 
 			function moveUp() {
 					document.getElementById("mapImage").src = "images/map.jpg";
-					$("#mapImage").attr("usemap", "#image-map");
 					document.getElementById("upButton").style.display = "none";
 					document.getElementById("downButton").style.display = "inline-block";
 			}
@@ -147,32 +145,6 @@
 			<i class="fas fa-expand" onclick="toggleFullScreen()"></i>
 
 		</div>
-		<img src="images/map.jpg" draggable="false" id="mapImage" ondragstart="return false;" usemap="#image-map">
-		<map name="image-map">
-		    <area target="" alt="Catacombs" title="Catacombs" href="" onclick="moveUnder(); return false;" coords="1911,1533,1960,1579" shape="rect">
-		    <area target="" alt="Catacombs" title="Catacombs" href="" onclick="moveUnder(); return false;" coords="1627,1059,1668,1100" shape="rect">
-		    <area target="" alt="Catacombs" title="Catacombs" href="" onclick="moveUnder(); return false;" coords="2077,2007,2034,1970" shape="rect">
-		    <area target="" alt="Catacombs" title="Catacombs" href="" onclick="moveUnder(); return false;" coords="1255,1618,1293,1658" shape="rect">
-		    <area target="" alt="Catacombs" title="Catacombs" href="" onclick="moveUnder(); return false;" coords="2161,763,2202,806" shape="rect">
-				<area target="" alt="Crabclaw Caves" title="Crabclaw Caves" href="" onclick="moveUnder(); return false;" coords="1966,2448,29" shape="circle">
-				<area target="" alt="Lizardman Caves" title="Lizardman Caves" href="" onclick="moveUnder(); return false;" coords="620,1953,34" shape="circle">
-				<area target="" alt="Quidamortem Cave" title="Quidamortem Cave" href="" onclick="moveUnder(); return false;" coords="249,2012,37" shape="circle">
-				<area target="" alt="Chasm of Fire" title="Chasm of Fire" href="" onclick="moveUnder(); return false;" coords="1121,1569,37" shape="circle">
-				<area target="" alt="Ent Habitat" title="Ent Habitat" href="" onclick="moveUnder(); return false;" coords="1808,2214,35" shape="circle">
-				<area target="" alt="The Warrens" title="The Warrens" href="" onclick="moveUnder(); return false;" coords="2641,1266,34" shape="circle">
-		</map>
-		<map name="underground-map">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="1944,1537,25" shape="circle">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="1750,1334,25" shape="circle">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="1878,1795,25" shape="circle">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="2186,1770,25" shape="circle">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="2159,1334,25" shape="circle">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="2644,1272,25" shape="circle">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="1862,2255,25" shape="circle">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="1723,2268,25" shape="circle">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="244,2012,25" shape="circle">
-		    <area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="1140,1552,25" shape="circle">
-				<area target="" alt="Surface" title="Surface" href="" onclick="moveUp(); return false;" coords="620,1952,25" shape="circle">
-		</map>
+		<img src="images/map.jpg" draggable="false" id="mapImage" ondragstart="return false;">
 	</body>
 </html>

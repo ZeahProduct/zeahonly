@@ -12,19 +12,16 @@ body {
 
 .navbar-brand img {
   width: 24px;
-  -webkit-filter: drop-shadow(0px 0px 10px #000);
-  filter: drop-shadow(0px 0px 10px #000);
+  filter: drop-shadow(0px 1px 1px rgba(0,0,0,0.5));
 }
 
 .mega-text {
   font: 800 65px/1 'Source Sans Pro', Arial, sans-serif;
-  color: #616161;
+  color: #1e84ef;
   text-align: center;
   letter-spacing: -3px;
-  text-shadow: 0 1px 0 hsl(174,5%,30%), 0 2px 0 hsl(174,5%,25%), 0 3px 0 hsl(174,5%,20%), 0 4px 0 hsl(174,5%,16%), 0 5px 0 hsl(174,5%,14%), 0 6px 0 hsl(174,5%,12%), 0 7px 0 hsl(174,5%,11%), 0 8px 0 hsl(174,5%,10%), 0 0 5px rgba(0,0,0,.05), 0 1px 3px rgba(0,0,0,.2), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.2), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.3);
+  text-shadow: 0px 1px 0px #16589f, 0px 2px 0px #145499, 0px 3px 0px #114c8b, 0px 3px 0px #0e3c6d;
   margin: 20px 0px 40px 0px;
-  -webkit-filter: sepia(100%) hue-rotate(170deg) saturate(500%);
-          filter: sepia(100%) hue-rotate(170deg) saturate(500%);
 }
 
 iframe {

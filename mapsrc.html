@@ -1,38 +1,38 @@
-
 <html>
 	<head>
 		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
-    	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-	    <script>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+			integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+		<script>
 			var curDown = false, curYPos = 0, curXPos = 0;
 			var mA;
 			var posX = 1564;
 			var posY = 1389;
-			$(window).mousemove(function(m){
-			  	mA = m;
-			    if(curDown === true){
-			     $(window).scrollLeft($(window).scrollLeft() + (curXPos - m.pageX));
-			     $(window).scrollTop($(window).scrollTop() + (curYPos - m.pageY));
-			     posX = $(window).scrollLeft() + (curXPos - m.pageX);
-			     posY = $(window).scrollTop() + (curYPos - m.pageY);
-			    }
+			$(window).mousemove(function (m) {
+				mA = m;
+				if (curDown === true) {
+					$(window).scrollLeft($(window).scrollLeft() + (curXPos - m.pageX));
+					$(window).scrollTop($(window).scrollTop() + (curYPos - m.pageY));
+					posX = $(window).scrollLeft() + (curXPos - m.pageX);
+					posY = $(window).scrollTop() + (curYPos - m.pageY);
+				}
 			});
 
-			$(window).mousedown(function(m){
+			$(window).mousedown(function (m) {
 				mA = m;
 				curDown = true;
 				curYPos = m.pageY;
 				curXPos = m.pageX;
-			  });
-
-			$(window).mouseup(function(){
-			    curDown = false;
 			});
 
-		    var scale = 1;
-		    var scrollPercentageX, scrollPercentageY;
-		    var width = $('#mapImage').width();
-		    var height = $('#mapImage').height();
+			$(window).mouseup(function () {
+				curDown = false;
+			});
+
+			var scale = 1;
+			var scrollPercentageX, scrollPercentageY;
+			var width = $('#mapImage').width();
+			var height = $('#mapImage').height();
 
 			function zoom(scaleAmount) {
 				scale += scaleAmount;
@@ -41,65 +41,57 @@
 				} else if (scale < 0.2) {
 					scale = 0.2;
 				}
-			    $('#mapImage').css('MozTransform','scale(' + scale + ')');
-			    $('#mapImage').css('transform','scale(' + scale + ')');
-					$('#mapImage').css({
-					    'transform-origin':         '' + posX + 'px ' + posY + 'px 0px',
-					    '-webkit-transform-origin': '' + posX + 'px ' + posY + 'px 0px'
-					});
+				$('#mapImage').css('MozTransform', 'scale(' + scale + ')');
+				$('#mapImage').css('transform', 'scale(' + scale + ')');
 			}
 
 			function defaultZoom(scaleAmount) {
 				scale = 1;
-			  $('#mapImage').css('MozTransform','scale(1)');
-			  $('#mapImage').css('transform','scale(1)');
-				$('#mapImage').css({
-						'transform-origin':         '' + posX + 'px ' + posY + 'px 0px',
-						'-webkit-transform-origin': '' + posX + 'px ' + posY + 'px 0px'
-				});
+				$('#mapImage').css('MozTransform', 'scale(1)');
+				$('#mapImage').css('transform', 'scale(1)');
 			}
 
 			function moveUnder() {
-					document.getElementById("mapImage").src = "images/underground.jpg";
-					document.getElementById("downButton").style.display = "none";
-					document.getElementById("upButton").style.display = "inline-block";
+				document.getElementById("mapImage").src = "images/underground.jpg";
+				document.getElementById("downButton").style.display = "none";
+				document.getElementById("upButton").style.display = "inline-block";
 			}
 
 			function moveUp() {
-					document.getElementById("mapImage").src = "images/map.jpg";
-					document.getElementById("upButton").style.display = "none";
-					document.getElementById("downButton").style.display = "inline-block";
+				document.getElementById("mapImage").src = "images/map.jpg";
+				document.getElementById("upButton").style.display = "none";
+				document.getElementById("downButton").style.display = "inline-block";
 			}
 
 			function toggleFullScreen() {
-			  if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) {
-			    if (document.documentElement.requestFullscreen) {
-			      document.documentElement.requestFullscreen();
-			    } else if (document.documentElement.mozRequestFullScreen) {
-			      document.documentElement.mozRequestFullScreen();
-			    } else if (document.documentElement.webkitRequestFullscreen) {
-			      document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-			    }
-			  } else {
-			    if (document.cancelFullScreen) {
-			      document.cancelFullScreen();
-			    } else if (document.mozCancelFullScreen) {
-			      document.mozCancelFullScreen();
-			    } else if (document.webkitCancelFullScreen) {
-			      document.webkitCancelFullScreen();
-			    }
-			  }
+				if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement) {
+					if (document.documentElement.requestFullscreen) {
+						document.documentElement.requestFullscreen();
+					} else if (document.documentElement.mozRequestFullScreen) {
+						document.documentElement.mozRequestFullScreen();
+					} else if (document.documentElement.webkitRequestFullscreen) {
+						document.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+					}
+				} else {
+					if (document.cancelFullScreen) {
+						document.cancelFullScreen();
+					} else if (document.mozCancelFullScreen) {
+						document.mozCancelFullScreen();
+					} else if (document.webkitCancelFullScreen) {
+						document.webkitCancelFullScreen();
+					}
+				}
 			}
-	    </script>
+		</script>
 		<style>
 			body {
-			    -webkit-touch-callout: none;
-			    -webkit-user-select: none;
-			    -khtml-user-select: none;
-			    -moz-user-select: none;
-			    -ms-user-select: none;
-			    user-select: none;
-			    background: black;
+				-webkit-touch-callout: none;
+				-webkit-user-select: none;
+				-khtml-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				background: black;
 			}
 
 			.toolbar {
@@ -108,7 +100,7 @@
 				right: 10px;
 				background: rgb(0 0 0 / 83%);
 				border-radius: 4px;
-				box-shadow: 2px 2px 5px 1px rgb(72 72 72 / 50%);
+				box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 50%);
 				text-shadow: 0px 0px 2px #000;
 				font-size: 24px;
 				padding: 20px;
@@ -118,9 +110,10 @@
 			}
 
 			.toolbar i {
-				-webkit-transition: color 0.5s; /* Safari */
-    			transition: color 0.5s;
-				cursor:pointer;
+				-webkit-transition: color 0.5s;
+				/* Safari */
+				transition: color 0.5s;
+				cursor: pointer;
 			}
 
 			.toolbar i:hover {
@@ -128,11 +121,11 @@
 			}
 
 			img {
-  				transition: transform 0.2s linear;
+				transition: transform 0.2s linear;
 			}
 
 			area:focus {
-				outline:none;
+				outline: none;
 			}
 		</style>
 	</head>
@@ -141,10 +134,15 @@
 			<i class="fas fa-search-plus" onclick="zoom(0.1)"></i><br /><br />
 			<i class="fas fa-search-minus" onclick="zoom(-0.1)"></i><br /><br />
 			<i class="fas fa-search" onclick="defaultZoom()"></i><br /><br />
-			<i id="downButton" class="fas fa-arrow-down" onclick="moveUnder()"></i><i id="upButton" class="fas fa-arrow-up" onclick="moveUp()" style="display:none;"></i><br /><br />
+			<i id="downButton" class="fas fa-arrow-down" onclick="moveUnder()"></i><i id="upButton" class="fas fa-arrow-up"
+				onclick="moveUp()" style="display:none;"></i><br /><br />
 			<i class="fas fa-expand" onclick="toggleFullScreen()"></i>
-
 		</div>
 		<img src="images/map.jpg" draggable="false" id="mapImage" ondragstart="return false;">
+		<style>
+			#mapImage {
+				transform-origin: 50% 50%;
+			}
+		</style>	
 	</body>
 </html>

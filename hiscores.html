@@ -493,7 +493,7 @@
   	function lookup(elem, username) {
   		$.ajax({
   		    rank: "GET",
-  		    url: 'https://limitless-shelf-51564.herokuapp.com/https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player=' + username,
+  		    url: 'https://corsproxy.io/?https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player=' + username,
   		    success: function(data) {
               let parent = $(elem.parentNode.parentNode);
               let dataArray = data.split("\n");

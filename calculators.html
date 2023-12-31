@@ -1,344 +1,408 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
 
-    <title>Zeah Only - Calculators</title>
+	<title>Zeah Only - Calculators</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/main.css" rel="stylesheet" id="mainstyle">
-    <script src="js/themes.js"></script>
+	<link href="css/main.css" rel="stylesheet" id="mainstyle">
+	<script src="js/themes.js"></script>
 
-		<!-- Tab image -->
-		<link rel="icon" type="image/png" href="images/icon.png" sizes="16x16"/>
+	<!-- Tab image -->
+	<link rel="icon" type="image/png" href="images/icon.png" sizes="16x16" />
 
-		<!-- Icons -->
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+	<!-- Icons -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <script>
-    			points = 0;
-    			output = 0;
-    			minlevel = 2;
-    			maxlevel = 99;
+	<script>
+		points = 0;
+		output = 0;
+		minlevel = 2;
+		maxlevel = 99;
 
-    			var levels = [1];
-    			var xps = [];
+		var levels = [1];
+		var xps = [];
 
-    			for (lvl = 1; lvl <= maxlevel; lvl++)
-    			{
-    			  points += Math.floor(lvl + 300 * Math.pow(2, lvl / 7.));
-    			  if (lvl >= minlevel)
-    			  	levels.push(lvl);
-    			  	xps.push(output);
-    			  output = Math.floor(points / 4);
-    			}
+		for (lvl = 1; lvl <= maxlevel; lvl++) {
+			points += Math.floor(lvl + 300 * Math.pow(2, lvl / 7.));
+			if (lvl >= minlevel)
+				levels.push(lvl);
+			xps.push(output);
+			output = Math.floor(points / 4);
+		}
 
-    			function getLvl(xp) {
-    				var arrayLength = xps.length;
-    				for (var i = 0; i < arrayLength; i++) {
-    				    if (xps[i] > xp) {
-    				    	return levels[i]-1;
-    				    }
-    				}
-    			}
+		function getLvl(xp) {
+			var arrayLength = xps.length;
+			for (var i = 0; i < arrayLength; i++) {
+				if (xps[i] > xp) {
+					return levels[i] - 1;
+				}
+			}
+		}
 
-    			function getXp(level) {
-    				return xps[level-1];
-    			}
+		function getXp(level) {
+			return xps[level - 1];
+		}
 
-    			function round(value, decimals) {
-    			    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
-    			}
+		function round(value, decimals) {
+			return Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+		}
 
-    			function toArray(obj) {
-    			  var array = [];
-    			  for (var i = obj.length >>> 0; i--;) {
-    			    array[i] = obj[i];
-    			  }
-    			  return array;
-    			}
+		function toArray(obj) {
+			var array = [];
+			for (var i = obj.length >>> 0; i--;) {
+				array[i] = obj[i];
+			}
+			return array;
+		}
 
-    			function calc(startXp, endLvl, bookValue, num) {
-    				var books = 0;
-    				endXp = getXp(endLvl);
-    				while (startXp < endXp) {
-    					startLevel = getLvl(startXp);
-    					startXp = startXp + startLevel*bookValue
-    					books = books + 1
-    				}
-    				document.getElementById("lampResults" + num.toString()).innerHTML = "<h4 class='green'>" + books.toString() + " needed</h4>";
-    			}
+		function calc(startXp, endLvl, bookValue, num) {
+			var books = 0;
+			endXp = getXp(endLvl);
+			while (startXp < endXp) {
+				startLevel = getLvl(startXp);
+				startXp = startXp + startLevel * bookValue
+				books = books + 1
+			}
+			document.getElementById("lampResults" + num.toString()).innerHTML = "<h4 class='green'>" + books.toString() + " needed</h4>";
+		}
 
-    			function lamp(startXp, endLvl, type) {
-    			    if (type == "rc") {
-    				        calc(Number(startXp), Number(endLvl), 4, 1);
-    			    }
-    			    if (type == "magic") {
-    				        calc(Number(startXp), Number(endLvl), 11, 2);
-    			    }
-    			    if (type == "lamp") {
-    				        calc(Number(startXp), Number(endLvl), 10, 3);
-    			    }
-    			    if (type == "book") {
-    				        calc(Number(startXp), Number(endLvl), 15, 4);
-    			    }
-    			    if (type == "relic50") {
-    				        calc(Number(startXp), Number(endLvl), 50, 5);
-    			    }
-    			    if (type == "relic150") {
-    				        calc(Number(startXp), Number(endLvl), 150, 6);
-    			    }
-    			    return false;
-    			}
+		function lamp(startXp, endLvl, type) {
+			if (type == "rc") {
+				calc(Number(startXp), Number(endLvl), 4, 1);
+			}
+			if (type == "magic") {
+				calc(Number(startXp), Number(endLvl), 11, 2);
+			}
+			if (type == "lamp") {
+				calc(Number(startXp), Number(endLvl), 10, 3);
+			}
+			if (type == "book") {
+				calc(Number(startXp), Number(endLvl), 15, 4);
+			}
+			if (type == "relic50") {
+				calc(Number(startXp), Number(endLvl), 50, 5);
+			}
+			if (type == "relic150") {
+				calc(Number(startXp), Number(endLvl), 150, 6);
+			}
+			return false;
+		}
 
-    			function rate(level, type) {
-    			    if (type == "masterfarmer") {
-                var chance = (((((Number(level)*150) + (99*90) - 240)/98)/255)*100).toFixed(2); // https://twitter.com/JagexKieren/status/691576301296164865
-                document.getElementById("rateResults1").innerHTML = "<h4 class='green'>" + chance.toString() + "% Chance</h4>";
-    			    }
-    			    return false;
-    			}
+		function rate(level, type) {
+			if (type == "masterfarmer") {
+				var chance = (((((Number(level) * 150) + (99 * 90) - 240) / 98) / 255) * 100).toFixed(2); // https://twitter.com/JagexKieren/status/691576301296164865
+				document.getElementById("rateResults1").innerHTML = "<h4 class='green'>" + chance.toString() + "% Chance</h4>";
+			}
+			return false;
+		}
 
-
-    			window.onload = function() {
-    				var anchors = document.getElementsByClassName('toggleCalc1');
-    				var anchors = toArray(anchors);
-      			var anchors2 = document.getElementsByClassName('toggleCalc2');
-      			var anchors2 = toArray(anchors2);
-            for(var i = 0; i < anchors.length; i++) {
-    				    anchors[i].style.opacity = "0.5";
-    				    anchors[0].style.opacity = "1";
-    				    document.getElementById(i.toString()).style.display='none';
-    				    document.getElementById("0").style.display='block';
-    	    			    anchors[i].addEventListener('click',function() {
-    					var arr = Array.prototype.slice.call(anchors);
-    					redirect(this, arr.indexOf(this));
-    				    }, false);
-    				}
-            for(var i = 0; i < anchors2.length; i++) {
-    				    anchors2[i].style.opacity = "0.5";
-    				    anchors2[0].style.opacity = "1";
-    				    document.getElementById("a" + i.toString()).style.display='none';
-    				    document.getElementById("a0").style.display='block';
-    	    			    anchors2[i].addEventListener('click',function() {
-    					var arr = Array.prototype.slice.call(anchors2);
-    					redirect2(this, arr.indexOf(this));
-    				    }, false);
-    				}
+		function crane(currentLevel, goalLevel) {
+			let totalCranes = 0;
+			for (let i = currentLevel; i < goalLevel; i++) {
+				const xpNeeded = (1/4) * ((i - 1) + 300 * 2 ** ((i - 1) / 7));
+				const xpPer = i * 4;
+				totalCranes += parseInt(xpNeeded / xpPer) + 1;
+			}
+			document.getElementById("craneResults1").innerHTML = `
+				<h4 class='green'>${totalCranes} cranes needed to repair</h4><br/>
+				<h4 class='green'>${totalCranes*3} planks</h4><br/>
+				<h4 class='green'>${totalCranes*9} nails</h4><br/>
+				<h4 class='green'>${Math.ceil(totalCranes/8)} trips</h4><br/>
+			`;
+			return false;
+		}
 
 
-    		  };
-    		  function redirect(element, i) {
-    			       	var images = document.getElementsByClassName('toggleCalc1');
-    			       	images = toArray(images);
-          				for(var t = 0; t < images.length; t++) {
-          			     	images[t].style.opacity = "0.5";
-          				   	document.getElementById(t.toString()).style.display='none';
-          			  }
-          				element.style.opacity = "1";
-          				element.style.filter = 'alpha(opacity=100)';
-            			document.getElementById(i.toString()).style.display='block';
-    			}
-    		  function redirect2(element, i) {
-    			       	var images2 = document.getElementsByClassName('toggleCalc2');
-    			       	images2 = toArray(images2);
-          				for(var t = 0; t < images2.length; t++) {
-          			     	images2[t].style.opacity = "0.5";
-          				   	document.getElementById("a" + t.toString()).style.display='none';
-    			      	}
-          				element.style.opacity = "1";
-          				element.style.filter = 'alpha(opacity=100)';
-            			document.getElementById("a" + i.toString()).style.display='block';
-    			}
-    		</script>
+		window.onload = function () {
+			var anchors = document.getElementsByClassName('toggleCalc1');
+			var anchors = toArray(anchors);
+			var anchors2 = document.getElementsByClassName('toggleCalc2');
+			var anchors2 = toArray(anchors2);
+			for (var i = 0; i < anchors.length; i++) {
+				anchors[i].style.opacity = "0.5";
+				anchors[0].style.opacity = "1";
+				document.getElementById(i.toString()).style.display = 'none';
+				document.getElementById("0").style.display = 'block';
+				anchors[i].addEventListener('click', function () {
+					var arr = Array.prototype.slice.call(anchors);
+					redirect(this, arr.indexOf(this));
+				}, false);
+			}
+			for (var i = 0; i < anchors2.length; i++) {
+				anchors2[i].style.opacity = "0.5";
+				anchors2[0].style.opacity = "1";
+				document.getElementById("a" + i.toString()).style.display = 'none';
+				document.getElementById("a0").style.display = 'block';
+				anchors2[i].addEventListener('click', function () {
+					var arr = Array.prototype.slice.call(anchors2);
+					redirect2(this, arr.indexOf(this));
+				}, false);
+			}
 
 
-  </head>
+		};
+		function redirect(element, i) {
+			var images = document.getElementsByClassName('toggleCalc1');
+			images = toArray(images);
+			for (var t = 0; t < images.length; t++) {
+				images[t].style.opacity = "0.5";
+				document.getElementById(t.toString()).style.display = 'none';
+			}
+			element.style.opacity = "1";
+			element.style.filter = 'alpha(opacity=100)';
+			document.getElementById(i.toString()).style.display = 'block';
+		}
+		function redirect2(element, i) {
+			var images2 = document.getElementsByClassName('toggleCalc2');
+			images2 = toArray(images2);
+			for (var t = 0; t < images2.length; t++) {
+				images2[t].style.opacity = "0.5";
+				document.getElementById("a" + t.toString()).style.display = 'none';
+			}
+			element.style.opacity = "1";
+			element.style.filter = 'alpha(opacity=100)';
+			document.getElementById("a" + i.toString()).style.display = 'block';
+		}
+	</script>
 
-  <body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="map.html">Map</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="checklist.html">Checklist</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="achievements.html">Achievements</a>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="calculators.html">Calculators
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="hiscores.html">HiScores</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="guides.html">Guides</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+</head>
 
-    <!-- Page Content -->
-    <div class="container">
-      <!-- Content Row -->
-      <div class="row">
-        <div class="col-lg-5 my-4 mx-2 card-body card-shadow" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
-          <h2>Arceuus Book Calculator</h2>
-				        <img class="btn btn-primary toggleCalc1" src="images/rc.png">
-				        <img class="btn btn-primary toggleCalc1" src="images/magic.png">
-				        <br>
-				        	<form id="0" onsubmit="return lamp(document.getElementById('currentXp1').value, document.getElementById('endLvl1').value, 'rc');">
-						  	<fieldset>
-						    <legend class="h3">Runecraft (4x)</legend>
-						    <h5>Starting Experience:</h5>
-						    <input type="text" id="currentXp1" class="form-control"><br>
-						    <h5>Ending Level:</h5>
-						    <input type="text" id="endLvl1" class="form-control"><br>
-						    <input type="submit" value="Submit" class="btn btn-success">
-                <hr>
-						    <div id="lampResults1"><h4>???</h4></div>
-						  </fieldset>
-						</form>
+<body>
 
-						<form id="1" style="display:none;" onsubmit="return lamp(document.getElementById('currentXp2').value, document.getElementById('endLvl2').value, 'magic');">
-						  	<fieldset>
-						    <legend class="h3">Magic (11x)</legend>
-						    <h5>Starting Experience:</h5>
-						    <input type="text" id="currentXp2" class="form-control"><br>
-						    <h5>Ending Level:</h5>
-						    <input type="text" id="endLvl2" class="form-control"><br>
-						    <input type="submit" value="Submit" class="btn btn-success">
-                <hr>
-						    <div id="lampResults2"><h4>???</h4></div>
-						  </fieldset>
-						</form>
-        </div>
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="index.html"><img src="images/logo.png"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="map.html">Map</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="checklist.html">Checklist</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="achievements.html">Achievements</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="calculators.html">Calculators
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="hiscores.html">HiScores</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="guides.html">Guides</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-        <div class="col-lg-5 my-4 mx-2 card-body card-shadow" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
-          <h2>Lamp Calculator</h2>
-				        <img class="btn btn-primary toggleCalc2" src="images/lamp.png">
-				        <img class="btn btn-primary toggleCalc2" src="images/book.png">
-				        <img class="btn btn-primary toggleCalc2" src="images/relic50.png">
-				        <img class="btn btn-primary toggleCalc2" src="images/relic150.png">
-				        <br>
-				        	<form id="a0" onsubmit="return lamp(document.getElementById('currentXp3').value, document.getElementById('endLvl3').value, 'lamp');">
-						  	<fieldset>
-						    <legend class="h3">Genie Lamp (10x)</legend>
-						    <h5>Starting Experience:</h5>
-						    <input type="text" id="currentXp3" class="form-control"><br>
-						    <h5>Ending Level:</h5>
-						    <input type="text" id="endLvl3" class="form-control"><br>
-						    <input type="submit" value="Submit" class="btn btn-success">
-                <hr>
-						    <div id="lampResults3"><h4>???</h4></div>
-						  </fieldset>
-						</form>
+	<!-- Page Content -->
+	<div class="container">
+		<!-- Content Row -->
+		<div class="row">
+			<div class="col-lg-5 my-4 mx-2 card-body card-shadow"
+				style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+				<h2>Arceuus Book Calculator</h2>
+				<img class="btn btn-primary toggleCalc1" src="images/rc.png">
+				<img class="btn btn-primary toggleCalc1" src="images/magic.png">
+				<br>
+				<form id="0"
+					onsubmit="return lamp(document.getElementById('currentXp1').value, document.getElementById('endLvl1').value, 'rc');">
+					<fieldset>
+						<legend class="h3">Runecraft (4x)</legend>
+						<h5>Starting Experience:</h5>
+						<input type="text" id="currentXp1" class="form-control"><br>
+						<h5>Ending Level:</h5>
+						<input type="text" id="endLvl1" class="form-control"><br>
+						<input type="submit" value="Submit" class="btn btn-success">
+						<hr>
+						<div id="lampResults1">
+							<h4>???</h4>
+						</div>
+					</fieldset>
+				</form>
 
-						<form id="a1" style="display:none;" onsubmit="return lamp(document.getElementById('currentXp4').value, document.getElementById('endLvl4').value, 'book');">
-						  	<fieldset>
-						    <legend class="h3">Book of Knowledge (15x)</legend>
-						    <h5>Starting Experience:</h5>
-						    <input type="text" id="currentXp4" class="form-control"><br>
-						    <h5>Ending Level:</h5>
-						    <input type="text" id="endLvl4" class="form-control"><br>
-						    <input type="submit" value="Submit" class="btn btn-success">
-                <hr>
-						    <div id="lampResults4"><h4>???</h4></div>
-						  </fieldset>
-						</form>
+				<form id="1" style="display:none;"
+					onsubmit="return lamp(document.getElementById('currentXp2').value, document.getElementById('endLvl2').value, 'magic');">
+					<fieldset>
+						<legend class="h3">Magic (11x)</legend>
+						<h5>Starting Experience:</h5>
+						<input type="text" id="currentXp2" class="form-control"><br>
+						<h5>Ending Level:</h5>
+						<input type="text" id="endLvl2" class="form-control"><br>
+						<input type="submit" value="Submit" class="btn btn-success">
+						<hr>
+						<div id="lampResults2">
+							<h4>???</h4>
+						</div>
+					</fieldset>
+				</form>
+			</div>
 
-						<form id="a2" style="display:none;" onsubmit="return lamp(document.getElementById('currentXp5').value, document.getElementById('endLvl5').value, 'relic50');">
-						  	<fieldset>
-						    <legend class="h3">Dark Relic (50x)</legend>
-						    <h5>Starting Experience:</h5>
-						    <input type="text" id="currentXp5" class="form-control"><br>
-						    <h5>Ending Level:</h5>
-						    <input type="text" id="endLvl5" class="form-control"><br>
-						    <input type="submit" value="Submit" class="btn btn-success">
-                <hr>
-						    <div id="lampResults5"><h4>???</h4></div>
-						  </fieldset>
-						</form>
+			<div class="col-lg-5 my-4 mx-2 card-body card-shadow"
+				style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+				<h2>Lamp Calculator</h2>
+				<img class="btn btn-primary toggleCalc2" src="images/lamp.png">
+				<img class="btn btn-primary toggleCalc2" src="images/book.png">
+				<img class="btn btn-primary toggleCalc2" src="images/relic50.png">
+				<img class="btn btn-primary toggleCalc2" src="images/relic150.png">
+				<br>
+				<form id="a0"
+					onsubmit="return lamp(document.getElementById('currentXp3').value, document.getElementById('endLvl3').value, 'lamp');">
+					<fieldset>
+						<legend class="h3">Genie Lamp (10x)</legend>
+						<h5>Starting Experience:</h5>
+						<input type="text" id="currentXp3" class="form-control"><br>
+						<h5>Ending Level:</h5>
+						<input type="text" id="endLvl3" class="form-control"><br>
+						<input type="submit" value="Submit" class="btn btn-success">
+						<hr>
+						<div id="lampResults3">
+							<h4>???</h4>
+						</div>
+					</fieldset>
+				</form>
 
-						<form id="a3" style="display:none;" onsubmit="return lamp(document.getElementById('currentXp6').value, document.getElementById('endLvl6').value, 'relic150');">
-						  	<fieldset>
-						    <legend class="h3">Dark Relic (150x)</legend>
-						    <h5>Starting Experience:</h5>
-						    <input type="text" id="currentXp6" class="form-control"><br>
-						    <h5>Ending Level:</h5>
-						    <input type="text" id="endLvl6" class="form-control"><br>
-						    <input type="submit" value="Submit" class="btn btn-success">
-                <hr>
-						    <div id="lampResults6"><h4>???</h4></div>
-						  </fieldset>
-						</form>
-        </div>
+				<form id="a1" style="display:none;"
+					onsubmit="return lamp(document.getElementById('currentXp4').value, document.getElementById('endLvl4').value, 'book');">
+					<fieldset>
+						<legend class="h3">Book of Knowledge (15x)</legend>
+						<h5>Starting Experience:</h5>
+						<input type="text" id="currentXp4" class="form-control"><br>
+						<h5>Ending Level:</h5>
+						<input type="text" id="endLvl4" class="form-control"><br>
+						<input type="submit" value="Submit" class="btn btn-success">
+						<hr>
+						<div id="lampResults4">
+							<h4>???</h4>
+						</div>
+					</fieldset>
+				</form>
 
-        <br/>
+				<form id="a2" style="display:none;"
+					onsubmit="return lamp(document.getElementById('currentXp5').value, document.getElementById('endLvl5').value, 'relic50');">
+					<fieldset>
+						<legend class="h3">Dark Relic (50x)</legend>
+						<h5>Starting Experience:</h5>
+						<input type="text" id="currentXp5" class="form-control"><br>
+						<h5>Ending Level:</h5>
+						<input type="text" id="endLvl5" class="form-control"><br>
+						<input type="submit" value="Submit" class="btn btn-success">
+						<hr>
+						<div id="lampResults5">
+							<h4>???</h4>
+						</div>
+					</fieldset>
+				</form>
 
-        <div class="col-lg-5 my-4 mx-2 card-body card-shadow" style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
-          <h2>Success Rate Calculator</h2>
-				        <img class="btn btn-primary" src="images/Master_Farmer.png">
-				        <br>
-				        	<form id="a0" onsubmit="return rate(document.getElementById('Lvl').value, 'masterfarmer');">
-						  	<fieldset>
-						    <legend class="h3">Master Farmers</legend>
-						    <h5>Thieving Level:</h5>
-						    <input type="text" id="Lvl" class="form-control"><br>
-						    <input type="submit" value="Submit" class="btn btn-success">
-                <hr>
-						    <div id="rateResults1"><h4>???</h4></div>
-						  </fieldset>
-						</form>
-          </div>
+				<form id="a3" style="display:none;"
+					onsubmit="return lamp(document.getElementById('currentXp6').value, document.getElementById('endLvl6').value, 'relic150');">
+					<fieldset>
+						<legend class="h3">Dark Relic (150x)</legend>
+						<h5>Starting Experience:</h5>
+						<input type="text" id="currentXp6" class="form-control"><br>
+						<h5>Ending Level:</h5>
+						<input type="text" id="endLvl6" class="form-control"><br>
+						<input type="submit" value="Submit" class="btn btn-success">
+						<hr>
+						<div id="lampResults6">
+							<h4>???</h4>
+						</div>
+					</fieldset>
+				</form>
+			</div>
 
-      </div>
-      <!-- /.row -->
+			<br />
 
-    </div>
-    <!-- /.container -->
+			<div class="col-lg-5 my-4 mx-2 card-body card-shadow"
+				style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+				<h2>Success Rate Calculator</h2>
+				<img class="btn btn-primary" src="images/Master_Farmer.png">
+				<br>
+				<form id="a0" onsubmit="return rate(document.getElementById('Lvl').value, 'masterfarmer');">
+					<fieldset>
+						<legend class="h3">Master Farmers</legend>
+						<h5>Thieving Level:</h5>
+						<input type="text" id="Lvl" class="form-control"><br>
+						<input type="submit" value="Submit" class="btn btn-success">
+						<hr>
+						<div id="rateResults1">
+							<h4>???</h4>
+						</div>
+					</fieldset>
+				</form>
+			</div>
 
-    <!-- Footer -->
-    <footer class="py-5">
-      <div class="container">
-        <p class="m-0 text-center text-white">
-					<a href="https://discord.gg/q73k9Dn" class="btn btn-primary"><i class="fab fa-discord"></i> Discord</a>
-					<a href="https://twitter.com/zeahproduct" class="btn btn-primary"><i class="fab fa-twitter"></i> Twitter</a>
-					<a href="https://github.com/ZeahProduct/zeahonly" class="btn btn-primary"><i class="fab fa-github"></i> GitHub</a>
-				</p>
-      </div>
-      <!-- /.container -->
-    </footer>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+			<br />
 
-  </body>
+			<div class="col-lg-5 my-4 mx-2 card-body card-shadow"
+				style="border: 1px solid rgba(0,0,0,.125);border-radius: .25rem;">
+				<h2>Crane Repair Calculator</h2>
+				<img class="btn btn-primary" src="images/crane.webp">
+				<br>
+				<form id="a0" onsubmit="return crane(document.getElementById('craneCurrentLvl').value, document.getElementById('craneGoalLvl').value);">
+					<fieldset>
+						<legend class="h3">Fishing Crane</legend>
+						<h5>Current Level:</h5>
+						<input type="text" id="craneCurrentLvl" class="form-control"><br>
+						<h5>Goal Level:</h5>
+						<input type="text" id="craneGoalLvl" class="form-control"><br>
+						<input type="submit" value="Submit" class="btn btn-success">
+						<hr>
+						<div id="craneResults1">
+							<h4>???</h4>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+		<!-- /.row -->
+
+	</div>
+	<!-- /.container -->
+
+	<!-- Footer -->
+	<footer class="py-5">
+		<div class="container">
+			<p class="m-0 text-center text-white">
+				<a href="https://discord.gg/q73k9Dn" class="btn btn-primary"><i class="fab fa-discord"></i> Discord</a>
+				<a href="https://twitter.com/zeahproduct" class="btn btn-primary"><i class="fab fa-twitter"></i>
+					Twitter</a>
+				<a href="https://github.com/ZeahProduct/zeahonly" class="btn btn-primary"><i class="fab fa-github"></i>
+					GitHub</a>
+			</p>
+		</div>
+		<!-- /.container -->
+	</footer>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
 
 </html>

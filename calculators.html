@@ -110,7 +110,7 @@
 		function crane(currentLevel, goalLevel) {
 			let totalCranes = 0;
 			for (let i = currentLevel; i < goalLevel; i++) {
-				const xpNeeded = (1/4) * (i + 300 * 2 ** (i / 7));
+				const xpNeeded = (1/4) * ((i - 1) + 300 * 2 ** ((i - 1) / 7));
 				const xpPer = i * 4;
 				totalCranes += parseInt(xpNeeded / xpPer) + 1;
 			}
